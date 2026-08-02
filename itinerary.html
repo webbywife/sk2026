@@ -22,27 +22,19 @@
     --line: rgba(58,46,56,0.12);
   }
   *{box-sizing:border-box;}
-  body {
-    margin: 0;
-    /* background: radial-gradient(circle at 12% 8%, rgba(225, 74, 128, 0.07), transparent 40%), radial-gradient(circle at 88% 18%, rgba(180, 143, 217, 0.06), transparent 40%), var(--bg); */
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.6;
-    padding: 56px 20px 80px;
-    background-image: url(https://raw.githubusercontent.com/webbywife/sk2026/refs/heads/main/back.jpg);
-    background-size: 100%;
-    background-attachment: fixed;
-}
-  .wrap{
-    max-width: 860px;
-    margin: 0 auto;
-    background: #ffffffc4;
-    padding: 20px;
-    box-sizing: border-box;
-    border-radius: 10px;
-  
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 12% 8%, rgba(225,74,128,0.07), transparent 40%),
+      radial-gradient(circle at 88% 18%, rgba(180,143,217,0.06), transparent 40%),
+      var(--bg);
+    color:var(--text);
+    font-family:'Inter', sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    padding:56px 20px 80px;
   }
+  .wrap{max-width:860px;margin:0 auto;}
   .mono{font-family:'JetBrains Mono', monospace;}
 
   /* ===== HERO ===== */
@@ -73,42 +65,44 @@
   }
 
   /* ===== BOARDING PASS ===== */
+  .pass-row{display:flex; gap:10px; margin-bottom:18px;}
   .pass{
     position:relative;
     background:var(--panel);
     border:1px solid var(--line);
-    border-radius:16px;
+    border-radius:12px;
     display:flex;
     overflow:hidden;
-    margin-bottom:18px;
+    flex:1;
     box-shadow: 0 2px 10px rgba(58,46,56,0.05);
   }
-  .pass-seg{flex:1;padding:22px 24px;}
+  .pass-seg{flex:1;padding:12px 16px;}
   .pass-seg + .pass-seg{border-left:1px dashed rgba(58,46,56,0.18);}
   .pass-route{
     font-family:'Space Grotesk', sans-serif;
     font-weight:700;
-    font-size:22px;
-    margin:0 0 6px;
+    font-size:15px;
+    margin:0 0 3px;
   }
-  .pass-route .arrow{color:var(--pink); padding:0 6px;}
-  .pass-date{font-family:'JetBrains Mono', monospace; font-size:13px; color:var(--gold); margin-bottom:14px;}
-  .pass-grid{display:grid; grid-template-columns:1fr 1fr; gap:10px 18px;}
-  .pass-item .k{font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-dim); margin-bottom:3px;}
-  .pass-item .v{font-family:'JetBrains Mono', monospace; font-size:14.5px; color:var(--text);}
+  .pass-route .arrow{color:var(--pink); padding:0 4px;}
+  .pass-date{font-family:'JetBrains Mono', monospace; font-size:10.5px; color:var(--gold); margin-bottom:8px;}
+  .pass-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:6px 10px;}
+  .pass-item .k{font-size:9px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-dim); margin-bottom:1px;}
+  .pass-item .v{font-family:'JetBrains Mono', monospace; font-size:11.5px; color:var(--text);}
   .pass-stub{
-    width:120px;
+    width:74px;
     background:var(--panel-2);
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    gap:6px;
-    padding:16px 10px;
+    gap:3px;
+    padding:10px 6px;
     text-align:center;
+
   }
-  .pass-stub .tag{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-dim);}
-  .pass-stub .flight{font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:20px; color:var(--pink);}
+  .pass-stub .tag{font-family:'JetBrains Mono',monospace; font-size:8.5px; color:var(--text-dim); line-height:1.3;}
+  .pass-stub .flight{font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:13px; color:var(--pink);}
 
   /* ===== STATS ===== */
   .stats{
@@ -138,6 +132,20 @@
     border-radius:0 10px 10px 0;
   }
   .meaning b{color:var(--text);}
+
+  .hiccup{
+    margin-top:12px;
+    border-left:2px solid var(--gold);
+    padding:12px 18px;
+    font-size:14.5px;
+    color:var(--text-dim);
+    background:rgba(184,114,42,0.06);
+    border-radius:0 10px 10px 0;
+  }
+  .hiccup b{color:var(--text);}
+  .hiccup ul{margin:8px 0 0; padding-left:18px;}
+  .hiccup li{margin-bottom:6px; line-height:1.5;}
+  .hiccup li:last-child{margin-bottom:0;}
 
   /* ===== TABS ===== */
   .tabbar{
@@ -318,6 +326,57 @@
     vertical-align:1px;
   }
 
+  /* ===== OPTION CARDS ===== */
+  .opt-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--text-dim);
+    margin:10px 0 6px;
+  }
+  .opt-grid{display:flex; flex-direction:column; gap:8px;}
+  .opt-card{
+    background:var(--bg);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:10px 14px 12px;
+    cursor:pointer;
+    transition:border-color 0.15s ease, background 0.15s ease;
+  }
+  .opt-card:hover{border-color:var(--pink-light);}
+  .opt-card.pick{border-color:var(--pink); background:var(--panel-2);}
+  .opt-hint{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--text-dim);
+    margin:-18px 0 26px;
+  }
+  .opt-top{display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap;}
+  .opt-name{font-weight:600; font-size:15px;}
+  .opt-tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size:9px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:#fff;
+    background:var(--pink);
+    border-radius:999px;
+    padding:2px 8px;
+    white-space:nowrap;
+  }
+  .opt-meta{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11.5px;
+    color:var(--gold);
+    margin:5px 0 6px;
+  }
+  .opt-note{font-size:13.5px; color:var(--text-dim); line-height:1.5;}
+  .opt-card .pin{margin-left:0; display:inline-block; margin-top:6px;}
+
   .nav-btns{
     display:flex;
     justify-content:space-between;
@@ -453,6 +512,7 @@
 
   @media (max-width:600px){
     h1{font-size:36px;}
+    .pass-row{flex-direction:column;}
     .pass{flex-direction:column;}
     .pass-seg + .pass-seg{border-left:none; border-top:1px dashed rgba(58,46,56,0.18);}
     .pass-stub{width:100%; flex-direction:row; justify-content:space-between;}
@@ -468,7 +528,9 @@
   <div class="eyebrow">Mission briefing · MNL → ICN → MNL</div>
   <h1>Seoul <span>2026</span></h1>
   <p class="subhead">Five days, one AI Summit, one campus visit, and a city that runs on neon and 1,000-year-old temples. Tap through each day below.</p>
+  <p class="opt-hint">Every time slot has 3+ options — tap a card to make it your pick. Choices save automatically.</p>
 
+  <div class="pass-row">
   <div class="pass">
     <div class="pass-seg">
       <p class="pass-route">MNL <span class="arrow">→</span> ICN</p>
@@ -476,7 +538,6 @@
       <div class="pass-grid">
         <div class="pass-item"><div class="k">Depart</div><div class="v">00:55</div></div>
         <div class="pass-item"><div class="k">Arrive</div><div class="v">06:00</div></div>
-        <div class="pass-item"><div class="k">Seat</div><div class="v">51K · Class B</div></div>
         <div class="pass-item"><div class="k">Terminal</div><div class="v">T1 → T1</div></div>
       </div>
     </div>
@@ -493,7 +554,6 @@
       <div class="pass-grid">
         <div class="pass-item"><div class="k">Depart</div><div class="v">20:30</div></div>
         <div class="pass-item"><div class="k">Arrive</div><div class="v">23:40</div></div>
-        <div class="pass-item"><div class="k">Seat</div><div class="v">50A · Class U</div></div>
         <div class="pass-item"><div class="k">Terminal</div><div class="v">T1 → T1</div></div>
       </div>
     </div>
@@ -501,6 +561,7 @@
       <div class="tag">Philippine Airlines</div>
       <div class="flight">PR403</div>
     </div>
+  </div>
   </div>
 
   <div class="stats">
@@ -515,9 +576,9 @@
   <div class="tabbar" id="tabbar">
     <button class="tab active" data-day="1"><span class="t-num mono">Day 1 · Tue 18</span><span class="t-title">Touchdown & temple calm</span></button>
     <button class="tab" data-day="2"><span class="t-num mono">Day 2 · Wed 19</span><span class="t-title">Summit day one</span></button>
-    <button class="tab" data-day="3"><span class="t-num mono">Day 3 · Thu 20</span><span class="t-title">Summit day two</span></button>
-    <button class="tab" data-day="4"><span class="t-num mono">Day 4 · Fri 21</span><span class="t-title">Finale + campus</span></button>
-    <button class="tab" data-day="5"><span class="t-num mono">Day 5 · Sat 22</span><span class="t-title">Bonus Seoul</span></button>
+    <button class="tab" data-day="3"><span class="t-num mono">Day 3 · Thu 20</span><span class="t-title">Summit + Namdaemun & Namsan</span></button>
+    <button class="tab" data-day="4"><span class="t-num mono">Day 4 · Fri 21</span><span class="t-title">Finale + Sejong + Banpo</span></button>
+    <button class="tab" data-day="5"><span class="t-num mono">Day 5 · Sat 22</span><span class="t-title">Jongno friends + Old Seoul</span></button>
     <button class="tab" data-day="budget"><span class="t-num mono">Trip cost</span><span class="t-title">Budget</span></button>
   </div>
 
@@ -529,7 +590,7 @@
         <h1 class="day-title">Touchdown & temple calm <span class="kr">화요일</span></h1>
         <div class="weather">
           <div class="temp">28° <span>/ 22°C</span></div>
-          <div class="wdesc"><b>Hot, humid, ~35% rain chance.</b> You'll be moving from an air-conditioned cabin straight into thick outdoor humidity — dress light for the temple walk, not for the plane.</div>
+          <div class="wdesc"><b>Hot, humid, ~35% rain chance.</b> Gyeongbokgung is closed on Tuesdays anyway, so no loss — today stays close to the hotel while you shake off the flight.</div>
         </div>
         <div class="outfit">
           <span class="chip">breathable tee</span>
@@ -544,17 +605,54 @@
         </div>
       </div>
       <div class="stops">
-        <div class="stop"><div class="time">06:00</div><div><div class="what">Land at <b>Incheon T1</b><span class="cost">~$9–15 transport</span><a class="pin" href="https://maps.google.com/?cid=10181407952118529748" target="_blank" rel="noopener">Map ↗</a></div><img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjDyX_UKeyaZmuy3ysS_kqrYP8qMK9G2lcL0Is-DILCvjTytdUbzaAmeCJw8leXmz53CT-wC3OabfOZd0Kn3YPTz2ZojC17MCwTFiraKJyYb1HO-2-bA6Zs2jvGIhtHGu3_ninoQjBMmQsaAW10=s4800-w800-h600" alt="Incheon Airport" loading="lazy"><div class="note">Immigration + bags, then <b>Airport Limousine Bus #6103</b> — non-stop to COEX City Airport Terminal (2 min from the hotel), ~62 km by road, ~65–90 min. Board at Level 1 Arrivals, Gate 6–7, Platform 7A.</div></div></div>
-        <div class="stop"><div class="time">08:30</div><div><div class="what">Bag drop at <b>Shilla Stay Samsung COEX</b><a class="pin" href="https://maps.google.com/?cid=1342291557989927897" target="_blank" rel="noopener">Map ↗</a></div><img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjC1uB91YsXtm-CcImZHSS6vqFPqXBcYo4cjh5tnqVQjuVtD9bTn2bqnfVA2FBD7KECP7-AHfKzod99LZ_OgDNzZ1o3afDp1mx_r7TVylnJvJGQ1IYmDowRtbf3LRYGC2iHcYKc2VX-oYDw3=s4800-w800-h600" alt="Shilla Stay Samsung COEX" loading="lazy"><div class="note">Check-in isn't until 3pm — the bell desk will hold your luggage.</div></div></div>
-        <div class="stop"><div class="time">08:45</div><div><div class="what">Breakfast — <b>Four Stones Coffee Roasters</b><span class="cost">~$8–10 food</span><a class="pin" href="https://maps.google.com/?cid=8842083408563454710" target="_blank" rel="noopener">Map ↗</a></div><img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjAQ0EiBgf_gsxGIi2hgsQcKwsNxS1nA8C3aFdgtj1amyh7Y1wCgKZ5LzGPgmQnEVeqKNu07mIuzrzVDqyOLjA0kEeAcSMLl9t9-m_fDN77yjCRpF0qd3xd5gfvMrBt_5sscKkufhtkd_jFQjg=s4800-w800-h600" alt="Four Stones Coffee Roasters" loading="lazy"><div class="note">4-min walk from the hotel. Quiet roastery, opens 7:30am — good coffee and pastries to fuel the temple walk.</div></div></div>
-        <div class="stop"><div class="time">09:15</div><div><div class="what"><b>Bongeunsa Temple</b><span class="cost">free</span><a class="pin" href="https://maps.google.com/?cid=5001419286940765545" target="_blank" rel="noopener">Map ↗</a></div><img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjDWZhznYxUyf4ZZHO1my6jOPWe_RXj-EU2r0gLE_uReKrr4pGgFN72E8GtmkleoRtS_GTaXtvmzKdIBqeeD42qdHO_5Ya5_4hArf1jyfppWDkamV69Ybi2cV7kVxps7A-8lyKbAlqK0F5L4xU4=s4800-w800-h600" alt="Bongeunsa Temple" loading="lazy"><div class="note">~0.7 km, 8-min walk from the hotel. Quietest before 10am, before the tour groups arrive.</div></div></div>
-        <div class="stop"><div class="time">12:00</div><div><div class="what">Lunch near COEX + <b>Starfield Library</b><span class="cost">~$12–18 food</span><a class="pin" href="https://maps.google.com/?cid=3143025846765073303" target="_blank" rel="noopener">Map ↗</a></div><img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjAlGZmMVnoDLdtIE3KMh9RFceY9YyiISDoeb8xGvv-6I2IP1yiGtUWXEpSMyp35E5j7JEIdSbYIxF8-U2TZxZPjcOYBagZbZKIGnUG1Jzpdax3U4X2dS7-4f8NBl_4sutzoL-4v0u0tpi1jJwHPAuf_cQ=s4800-w800-h600" alt="Starfield Library" loading="lazy"><div class="note">Banchan lunch, wander the multi-floor bookshelves. Library entry is free.</div></div></div>
-        <div class="stop"><div class="time">15:00</div><div><div class="what">Official check-in, shower off the flight</div><div class="note">Keep this short — 45–60 min is plenty if you slept a little on the plane.</div></div></div>
-        <div class="stop"><div class="time">16:15</div><div><div class="what"><b>SEA LIFE COEX Aquarium</b><span class="cost">~$28 entry</span><a class="pin" href="https://maps.google.com/?cid=8897176098279649643" target="_blank" rel="noopener">Map ↗</a></div><img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjCA8tApmd1n-_Ugmq_7Yd2AiOTF1oWq5v05Sz_uvtzzkELvs0T0IEmyk_WTBIyPzpJd_9dNWdmNEVdwjhszsEICAokbhBFQF2R_orLfNk1WkPv7mGzY79gM82TFOPCezCWX0C4Y2CYQOTz2moXMq1uPbg=s4800-w800-h600" alt="SEA LIFE COEX Aquarium" loading="lazy"><div class="note">2 min from the hotel, inside COEX Mall. Optional — an easy low-effort way to fill the gap before dinner, or skip it and rest instead if the red-eye caught up with you.</div></div></div>
-        <div class="stop"><div class="time">19:00</div><div><div class="what">Welcome dinner — <b>Sam's Korean BBQ</b><span class="cost">~$25–35 food</span><a class="pin" href="https://maps.google.com/?cid=8925633591907172216" target="_blank" rel="noopener">Map ↗</a></div><img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjBci5Sp2eDRZeLJOl8wRpwmdlWV4IR4ZbNc_OTz7j9-5DM4t7p0JSgR3-dJWg339b0bMqG6O1Hpl0QPhRIglFEAcEOSpp07pCs3ZKhWbItpD4xdLa8UjMwnh-CnuJMQn-FWQqyMIZ1231mbnbmPIr2hzw=s4800-w800-h600" alt="Sam's Korean BBQ" loading="lazy"><div class="note">5 minutes from the hotel, easy first-night pick.</div></div></div>
+        <div class="stop"><div class="time">06:00</div><div><div class="what">Land at <b>Incheon T1</b><span class="cost">~$9–15 transport</span><a class="pin" href="https://maps.google.com/?cid=10181407952118529748" target="_blank" rel="noopener">Map ↗</a></div><img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjDyX_UKeyaZmuy3ysS_kqrYP8qMK9G2lcL0Is-DILCvjTytdUbzaAmeCJw8leXmz53CT-wC3OabfOZd0Kn3YPTz2ZojC17MCwTFiraKJyYb1HO-2-bA6Zs2jvGIhtHGu3_ninoQjBMmQsaAW10=s4800-w800-h600" alt="Incheon Airport" loading="lazy"><div class="note">Immigration + bags, then <b>Airport Limousine Bus #6103</b> — non-stop to the COEX City Airport Terminal, 2 min from the hotel. ~62 km, ~65–90 min. Board at Level 1 Arrivals, Gate 6–7, Platform 7A.</div></div></div>
+        <div class="stop"><div class="time">08:30</div><div><div class="what">Bag drop at <b>Shilla Stay Samsung COEX</b><a class="pin" href="https://maps.google.com/?cid=1342291557989927897" target="_blank" rel="noopener">Map ↗</a></div><img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjC1uB91YsXtm-CcImZHSS6vqFPqXBcYo4cjh5tnqVQjuVtD9bTn2bqnfVA2FBD7KECP7-AHfKzod99LZ_OgDNzZ1o3afDp1mx_r7TVylnJvJGQ1IYmDowRtbf3LRYGC2iHcYKc2VX-oYDw3=s4800-w800-h600" alt="Shilla Stay Samsung COEX" loading="lazy"><div class="note">Check-in isn't until 3pm — the bell desk will hold your luggage. This is your base all four nights.</div></div></div>
+        <div class="stop"><div class="time">08:45</div><div>
+          <div class="what">Breakfast near the hotel<span class="cost">~$3–10 food</span></div>
+          <img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjAQ0EiBgf_gsxGIi2hgsQcKwsNxS1nA8C3aFdgtj1amyh7Y1wCgKZ5LzGPgmQnEVeqKNu07mIuzrzVDqyOLjA0kEeAcSMLl9t9-m_fDN77yjCRpF0qd3xd5gfvMrBt_5sscKkufhtkd_jFQjg=s4800-w800-h600" alt="Four Stones Coffee Roasters" loading="lazy">
+          <div class="opt-grid">
+            <div class="opt-card pick"><div class="opt-top"><span class="opt-name">Four Stones Coffee Roasters</span><span class="opt-tag">Pick</span></div><div class="opt-meta"><span>~0.3 km · 4-min walk from hotel</span><span>$8–10</span></div><div class="opt-note">Quiet third-wave roastery, opens 7:30am. Good pour-over and a small pastry case — least crowded of the three.</div><a class="pin" href="https://maps.google.com/?cid=8842083408563454710" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Isaac Toast, Samseong</span></div><div class="opt-meta"><span>~0.4 km · 5-min walk from hotel</span><span>$3–5</span></div><div class="opt-note">Korean-style toasted egg sandwich chain — the cheapest, fastest option if you just want to eat and get moving.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Isaac+Toast+Samseong+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Paris Baguette, COEX</span></div><div class="opt-meta"><span>~0.2 km · inside COEX Mall</span><span>$6–9</span></div><div class="opt-note">Reliable Korean bakery chain with AC seating — useful if it's already muggy out and you'd rather sit indoors.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Paris+Baguette+COEX+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+          </div>
+        </div></div>
+        <div class="stop"><div class="time">09:15</div><div>
+          <div class="what">Morning — low-key after the red-eye<span class="cost">free–$28</span></div>
+          <img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjDWZhznYxUyf4ZZHO1my6jOPWe_RXj-EU2r0gLE_uReKrr4pGgFN72E8GtmkleoRtS_GTaXtvmzKdIBqeeD42qdHO_5Ya5_4hArf1jyfppWDkamV69Ybi2cV7kVxps7A-8lyKbAlqK0F5L4xU4=s4800-w800-h600" alt="Bongeunsa Temple" loading="lazy">
+          <div class="opt-grid">
+            <div class="opt-card pick"><div class="opt-top"><span class="opt-name">Bongeunsa Temple</span><span class="opt-tag">Pick</span></div><div class="opt-meta"><span>~0.7 km · 8-min walk from breakfast</span><span>free</span></div><div class="opt-note">A 1,200-year-old working temple wedged between glass towers — the fastest way to reset a jet-lagged body. Quietest before 10am, before tour groups arrive.</div><a class="pin" href="https://maps.google.com/?cid=5001419286940765545" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">COEX Aquarium (SEA LIFE Seoul)</span></div><div class="opt-meta"><span>~0.2 km · inside COEX Mall</span><span>$24–28</span></div><div class="opt-note">Fully indoor, air-conditioned, low walking — a good pick if the humidity or the flight hit harder than expected. Allow ~1 hour.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=COEX+Aquarium+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Seolleung & Jeongneung Royal Tombs</span></div><div class="opt-meta"><span>~1.2 km · 15-min walk from breakfast</span><span>$1</span></div><div class="opt-note">UNESCO-listed Joseon royal tombs set in quiet woodland — fewer crowds than the temple, and a nice flat stroll to shake off the flight.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Seolleung+and+Jeongneung+Royal+Tombs+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">COEX Mall shopping</span></div><div class="opt-meta"><span>same building as the hotel</span><span>free browsing–$40</span></div><div class="opt-note">Fully indoor and AC — Kakao Friends flagship, Olive Young, Artbox stationery, and Innisfree are all on the same floor. An easy, low-walking option if the jet lag hits harder than expected.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Kakao+Friends+COEX+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+          </div>
+        </div></div>
+        <div class="stop"><div class="time">12:00</div><div>
+          <div class="what">Lunch near COEX<span class="cost">~$10–20 food</span></div>
+          <img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjAlGZmMVnoDLdtIE3KMh9RFceY9YyiISDoeb8xGvv-6I2IP1yiGtUWXEpSMyp35E5j7JEIdSbYIxF8-U2TZxZPjcOYBagZbZKIGnUG1Jzpdax3U4X2dS7-4f8NBl_4sutzoL-4v0u0tpi1jJwHPAuf_cQ=s4800-w800-h600" alt="Starfield Library" loading="lazy">
+          <div class="opt-grid">
+            <div class="opt-card pick"><div class="opt-top"><span class="opt-name">Banchan lunch + Starfield Library</span><span class="opt-tag">Pick</span></div><div class="opt-meta"><span>~0.3 km · 3-min walk from temple</span><span>$12–18</span></div><div class="opt-note">A proper sit-down Korean lunch, then wander the open-floor bookshelves next door — both inside COEX Mall.</div><a class="pin" href="https://maps.google.com/?cid=3143025846765073303" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Gogung Bibimbap, COEX</span></div><div class="opt-meta"><span>same building · COEX Mall</span><span>$10–14</span></div><div class="opt-note">Famous Jeonju-style bibimbap chain — casual mall dining, faster turnaround than a sit-down restaurant.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Gogung+Bibimbap+COEX+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Vatos Urban Tacos, Gangnam</span></div><div class="opt-meta"><span>~1 km · 10-min walk/taxi</span><span>$15–20</span></div><div class="opt-note">Korean-Mexican fusion with big shareable portions — a fun change of pace if you want something less traditional on day one.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Vatos+Urban+Tacos+Gangnam+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+          </div>
+        </div></div>
+        <div class="stop"><div class="time">15:00</div><div><div class="what">Official check-in, rest / shower off the flight</div><div class="note">45–60 min is plenty if you slept a little on the plane.</div></div></div>
+        <div class="stop"><div class="time">19:00</div><div>
+          <div class="what">Welcome dinner<span class="cost">~$5–35 food</span></div>
+          <img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjBci5Sp2eDRZeLJOl8wRpwmdlWV4IR4ZbNc_OTz7j9-5DM4t7p0JSgR3-dJWg339b0bMqG6O1Hpl0QPhRIglFEAcEOSpp07pCs3ZKhWbItpD4xdLa8UjMwnh-CnuJMQn-FWQqyMIZ1231mbnbmPIr2hzw=s4800-w800-h600" alt="Sam's Korean BBQ" loading="lazy">
+          <div class="opt-grid">
+            <div class="opt-card pick"><div class="opt-top"><span class="opt-name">Sam's Korean BBQ</span><span class="opt-tag">Pick</span></div><div class="opt-meta"><span>~0.4 km · 5-min walk from hotel</span><span>$25–35</span></div><div class="opt-note">Easy, reliable first-night BBQ — tabletop grilling, generous banchan spread, no reservation drama.</div><a class="pin" href="https://maps.google.com/?cid=8925633591907172216" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Yoogane Dakgalbi, Gangnam</span></div><div class="opt-meta"><span>~0.6 km · 8-min walk</span><span>$12–18</span></div><div class="opt-note">Budget pick — spicy stir-fried chicken and rice cakes, casual and filling. Good if you're saving the splurge dinner for later in the trip.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Yoogane+Dakgalbi+Gangnam+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Maple Tree House, Gangnam</span></div><div class="opt-meta"><span>~1 km · 10-min taxi</span><span>$35–45</span></div><div class="opt-note">A well-loved, higher-end BBQ institution — better cuts, better banchan, worth it if you want to start the trip with a splurge instead of ending on one.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Maple+Tree+House+Gangnam+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+          </div>
+        </div></div>
       </div>
-      <div class="meaning"><b>Why it's worth it:</b> a 1,200-year-old working temple wedged between glass towers is the fastest way to reset a body that just crossed a time zone on no sleep.</div>
-      <div class="nav-btns"><button class="nav-btn" id="prevBtn">← Previous day</button><button class="nav-btn" id="nextBtn">Next day →</button></div>
+      <div class="meaning"><b>Why it's worth it:</b> a 1,200-year-old working temple wedged between glass towers is the fastest way to reset a body that just crossed a time zone on no sleep — and everything today is within a 10-minute walk of where you'll sleep all four nights.</div>
+      <div class="hiccup"><b>Possible hiccups:</b><ul>
+        <li>Immigration at Incheon can run 30–45+ min on a busy morning — the 08:30 bag-drop and breakfast times may slip. Nothing today is time-sensitive, so just shift the whole morning later if needed.</li>
+        <li>COEX Aquarium can have long ticket queues on weekends — book timed-entry tickets online first if you're picking that option.</li>
+        <li>Room check-in isn't guaranteed right at 15:00 if the previous guest's room isn't ready yet — the bell desk can hold your bags longer, no need to hover in the lobby.</li>
+      </ul></div>
+      <div class="nav-btns"><button class="nav-btn" id="prevBtn" disabled></button><button class="nav-btn" id="nextBtn">Next day →</button></div>
     </div>
 
     <div class="day-panel" data-day="2">
@@ -577,21 +675,51 @@
         </div>
       </div>
       <div class="stops">
-        <div class="stop"><div class="time">08:00</div><div><div class="what">Breakfast — <b>Jeonu Sogogi Haejangguk</b><span class="cost">~$10–12 food</span><a class="pin" href="https://maps.google.com/?cid=13408439636498587448" target="_blank" rel="noopener">Map ↗</a></div><img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjCuGH0DFn0EtwlW0_gxiQk0EzpNHRbmD54GO34cxWCRGV4hf2C7NTZs72hOHDv6IXXHGAgC8oKYMVPXZiUzDGrh6n3xwS7kA04ye5aVFGNB7Ii-i5q1j5YctqAE8_sORNfzOUTkwx0pZ60xKMU=s4800-w800-h600" alt="Jeonu Sogogi Haejangguk" loading="lazy"><div class="note">5-min walk from the hotel. Hearty beef soup, opens 8am — good fuel before a full day of sessions.</div></div></div>
+        <div class="stop"><div class="time">08:00</div><div>
+          <div class="what">Breakfast near the hotel<span class="cost">~$5–12 food</span></div>
+          <img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjCuGH0DFn0EtwlW0_gxiQk0EzpNHRbmD54GO34cxWCRGV4hf2C7NTZs72hOHDv6IXXHGAgC8oKYMVPXZiUzDGrh6n3xwS7kA04ye5aVFGNB7Ii-i5q1j5YctqAE8_sORNfzOUTkwx0pZ60xKMU=s4800-w800-h600" alt="Jeonu Sogogi Haejangguk" loading="lazy">
+          <div class="opt-grid">
+            <div class="opt-card pick"><div class="opt-top"><span class="opt-name">Jeonu Sogogi Haejangguk</span><span class="opt-tag">Pick</span></div><div class="opt-meta"><span>~0.4 km · 5-min walk from hotel</span><span>$10–12</span></div><div class="opt-note">Hearty beef soup, opens 8am — sets you up for a long conference day.</div><a class="pin" href="https://maps.google.com/?cid=13408439636498587448" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Egg Drop, Samseong</span></div><div class="opt-meta"><span>~0.3 km · 4-min walk</span><span>$5–7</span></div><div class="opt-note">Fast breakfast sandwich chain — best option if you're running behind and want to eat on the walk over.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Egg+Drop+Samseong+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Twosome Place, Samseong</span></div><div class="opt-meta"><span>~0.3 km · 4-min walk</span><span>$6–9</span></div><div class="opt-note">Popular Korean cafe chain — coffee plus a light pastry, comfortable AC seating if you want a few quiet minutes before the ballroom.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Twosome+Place+Samseong+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+          </div>
+        </div></div>
         <div class="stop"><div class="time">08:45</div><div><div class="what">Walk to <b>COEX Grand Ballroom</b><a class="pin" href="https://maps.google.com/?cid=8637059584940914539" target="_blank" rel="noopener">Map ↗</a></div><img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjDn6ERGgjeTQXQA_LvsnErQDlLUCrDPp2ESfHbs-N6mus7d4E_yFYXmWFHSIFXxN5Wje35gyvot3u-XmxG-4GgA5TMtz7NJf8qIoxyjvad-RGCF4FQBeHZSNB6vJBceUua62_PAzQjUXVNAlQ=s4800-w800-h600" alt="COEX Grand Ballroom" loading="lazy"><div class="note">10 minutes on foot — no transport needed.</div></div></div>
         <div class="stop"><div class="time">09:00–18:00</div><div><div class="what">AI Summit Seoul & Expo — sessions</div></div></div>
-        <div class="stop"><div class="time">19:00</div><div><div class="what">Dinner — <b>Jungsik Seoul</b><span class="cost">~$150–200 food</span><a class="pin" href="https://maps.google.com/?cid=9597516723699749000" target="_blank" rel="noopener">Map ↗</a></div><img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjCwtc3KAqogXPDLPxkifA4s_uRe_jIVuKMLSBDoytrEYtfbgMq-njX3FJe-p6nXBfc7nEbT32ynLZRfBWwgmlbsyo60lzWiH5XTaCNfcJsk-6TJTnH9G3tKNmYKtIDFxxYSWY-Kt2swgJmOxrk=s4800-w800-h600" alt="Jungsik Seoul" loading="lazy"><div class="note">Two Michelin stars, modern Korean. Book ahead — this runs well above the $20 per diem, so budget it as a splurge.</div></div></div>
+        <div class="stop"><div class="time">19:00</div><div>
+          <div class="what">Dinner near Gangnam<span class="cost">~$5–30 food</span></div>
+          <img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjCKce7Fgi9-BybeEzGnkPEfpjVyymKcGFVWnPSW0zoOllOxM9voXQaFHn3XCgCX7PXfgVEWKZBwkUh9lSapVXrLBUf4IgX3v-Tm_C447yXMv8QfsTHn8NXvantKmBzLLRQOjPg0wS3pR3_R8SVVLRFVIg=s4800-w800-h600" alt="Hyeongje Teuksubuwi Gangnam BBQ" loading="lazy">
+          <div class="opt-grid">
+            <div class="opt-card pick"><div class="opt-top"><span class="opt-name">Hyeongje Teuksubuwi Gangnam</span><span class="opt-tag">Pick</span></div><div class="opt-meta"><span>~2.5 km · 10-min taxi from COEX</span><span>$25–30</span></div><div class="opt-note">High-energy Korean BBQ — the chef grills tableside and walks you through every cut. Perfect 5.0 rating, always lively.</div><a class="pin" href="https://maps.google.com/?cid=5013849398014679674" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Kimbap Cheonguk, Gangnam</span></div><div class="opt-meta"><span>~0.5 km · 6-min walk from COEX</span><span>$5–8</span></div><div class="opt-note">Ultra-budget Korean diner chain — kimbap, ramyeon, dumplings. Good if you're tired after a full day of sessions and want something fast, no taxi needed.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Kimbap+Cheonguk+Gangnam+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Palsaik Samgyeopsal, Gangnam</span></div><div class="opt-meta"><span>~1.8 km · 8-min taxi from COEX</span><span>$20–28</span></div><div class="opt-note">Colorful marinated pork belly BBQ chain — a different flavor angle from a standard galbi dinner, still tabletop grilled.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Palsaik+Samgyeopsal+Gangnam+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+          </div>
+        </div></div>
+        <div class="stop"><div class="time">20:45</div><div>
+          <div class="what">Evening, low-key<span class="cost">free–$10</span></div>
+          <div class="opt-grid">
+            <div class="opt-card pick"><div class="opt-top"><span class="opt-name">SMTOWN COEX Artium</span><span class="opt-tag">Pick</span></div><div class="opt-meta"><span>~0.5 km · 6-min walk from dinner</span><span>$5–10</span></div><div class="opt-note">K-pop themed exhibits, shop, and cafe inside COEX — an easy, low-effort way to close the night without leaving the neighborhood.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=SMTOWN+COEX+Artium+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Bongeunsa Temple, evening</span></div><div class="opt-meta"><span>~1 km · 12-min walk from dinner</span><span>free</span></div><div class="opt-note">Quiet, lantern-lit grounds at night — calming after a packed conference day, and you already know the layout from Day 1.</div><a class="pin" href="https://maps.google.com/?cid=5001419286940765545" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Gangnam Station Underground Arcade</span></div><div class="opt-meta"><span>~10-min subway from Samseong</span><span>free browsing + $5–8 snacks</span></div><div class="opt-note">Long underground shopping street with street-food stalls — lively but not a late-night club scene, easy to duck out of whenever you're ready to sleep.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Gangnam+Station+Underground+Shopping+Arcade+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Garosu-gil shopping street</span></div><div class="opt-meta"><span>~2 km · 10-min taxi from dinner</span><span>free browsing</span></div><div class="opt-note">Tree-lined boutique street with an Olive Young branch, Zara, and dozens of small designer shops and cafes — trendier and more relaxed than the underground arcade.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Garosu-gil+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+          </div>
+        </div></div>
       </div>
+      <div class="hiccup"><b>Possible hiccups:</b><ul>
+        <li>Registration lines on the first morning of a multi-day summit are often the worst of the whole event — sticking to the 08:45 walk-over rather than arriving right at 09:00 avoids the worst of it.</li>
+        <li>Ballrooms run cold even in summer — if you forgot a light layer, COEX Mall (one floor down) has plenty of clothing shops.</li>
+        <li>BBQ spots near office districts can have a short wait after 19:00 on weekdays — Kimbap Cheonguk is the fast, no-wait backup if you're too hungry to queue.</li>
+      </ul></div>
       <div class="nav-btns"><button class="nav-btn" id="prevBtn2">← Previous day</button><button class="nav-btn" id="nextBtn2">Next day →</button></div>
     </div>
 
     <div class="day-panel" data-day="3">
       <div class="day-head">
         <div class="day-date">Thu · Aug 20</div>
-        <h1 class="day-title">Summit day two <span class="kr">목요일</span></h1>
+        <h1 class="day-title">Summit + Namdaemun & Namsan <span class="kr">목요일</span></h1>
         <div class="weather">
           <div class="temp">28° <span>/ 22°C</span></div>
-          <div class="wdesc"><b>Same pattern, evening market crawl adds sweat.</b> Myeongdong at night stays warm and crowded — breathable fabric matters more than style here.</div>
+          <div class="wdesc"><b>Same pattern, evening loop adds sweat.</b> Namdaemun and Namsan stay warm and crowded at night — breathable fabric matters more than style here.</div>
         </div>
         <div class="outfit">
           <span class="chip">conference layers</span>
@@ -599,60 +727,157 @@
           <span class="chip">crossbody bag over backpack</span>
         </div>
         <div class="day-media">
-          <img src="https://lh3.googleusercontent.com/place-photos/AG9NLjDkMxPijlKz1HouHeuLWVj1vTygp-UdsPKyoxVKd6scmXOLEDAiYLSge-Hoa6-mil9rot01knk9wpyZmosPb6sFnAB74TmV7L75e9_Kgla4LW9s30evRX1eJqfktmAPjilctI8xiRWnu5ywnQ=s4800-w800-h600" alt="Myeongdong" loading="lazy">
-          <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=126.97668%2C37.50469%2C127.06452%2C37.57207&layer=mapnik&marker=37.55659%2C126.98397" loading="lazy" title="Map of today's stops"></iframe>
-          <div class="cap"><span>Myeongdong</span><span>Today's area</span></div>
+          <img src="https://lh3.googleusercontent.com/place-photos/AG9NLjDoUOPU0bCR-7UByEtcEt8zDsA-hK3-NlIP17OvoYerufWmuRlEzzy0fs4-nm9CuouzCmp1LQl_Dl_tICkMeywm4eBfOsvzfYXgnASCXOnNXiA4eU9l_0e3ecXgqDMzRM4OA90gWJYgvjjnWfk=s4800-w664-h401" alt="Namsan / N Seoul Tower" loading="lazy">
+          <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=126.96931%2C37.50707%2C127.06452%2C37.57532&layer=mapnik&marker=37.55659%2C126.98397" loading="lazy" title="Map of today's stops"></iframe>
+          <div class="cap"><span>Namsan / N Seoul Tower</span><span>Today's area</span></div>
         </div>
       </div>
       <div class="stops">
-        <div class="stop"><div class="time">08:00</div><div><div class="what">Breakfast — <b>Le Four Doré</b><span class="cost">~$8–10 food</span><a class="pin" href="https://maps.google.com/?cid=3505816711078296040" target="_blank" rel="noopener">Map ↗</a></div><img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjAPe6zMLSjlmDruwBnppBiUMbK1Ktb_gJTQoe-Hx_E1QaS3wXgAe0ms1wX3kjQc-PCRr14Z7Ug5bY2V-Jy7BsWFCDPUeH1kYNx7QmncjiWzlXdtcQle2T8E4Q3zdflX5QpB2q39MNNukQrHy9k=s4800-w800-h600" alt="Le Four Doré" loading="lazy"><div class="note">6-min walk from the hotel. French-style bakery, opens 7:30am — croissants and coffee, a lighter start today.</div></div></div>
+        <div class="stop"><div class="time">08:00</div><div>
+          <div class="what">Breakfast near the hotel<span class="cost">~$4–10 food</span></div>
+          <img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjAPe6zMLSjlmDruwBnppBiUMbK1Ktb_gJTQoe-Hx_E1QaS3wXgAe0ms1wX3kjQc-PCRr14Z7Ug5bY2V-Jy7BsWFCDPUeH1kYNx7QmncjiWzlXdtcQle2T8E4Q3zdflX5QpB2q39MNNukQrHy9k=s4800-w800-h600" alt="Le Four Doré" loading="lazy">
+          <div class="opt-grid">
+            <div class="opt-card pick"><div class="opt-top"><span class="opt-name">Le Four Doré</span><span class="opt-tag">Pick</span></div><div class="opt-meta"><span>~0.5 km · 6-min walk from hotel</span><span>$8–10</span></div><div class="opt-note">French-style bakery, opens 7:30am — a change of pace from Korean breakfast soup.</div><a class="pin" href="https://maps.google.com/?cid=3505816711078296040" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Mom's Touch, Samseong</span></div><div class="opt-meta"><span>~0.3 km · 4-min walk</span><span>$4–6</span></div><div class="opt-note">Korean fast-food chain breakfast set — cheapest option, good if the last two days' breakfasts ran long.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Mom%27s+Touch+Samseong+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Twosome Place, Samseong</span></div><div class="opt-meta"><span>~0.3 km · 4-min walk</span><span>$6–9</span></div><div class="opt-note">Reliable Korean cafe chain — coffee and a light pastry if you want a quieter sit-down before another long conference day.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Twosome+Place+Samseong+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+          </div>
+        </div></div>
+        <div class="stop"><div class="time">08:45</div><div><div class="what">Walk to <b>COEX Grand Ballroom</b></div><div class="note">10 minutes on foot.</div></div></div>
         <div class="stop"><div class="time">09:00–18:00</div><div><div class="what">AI Summit Seoul & Expo — sessions</div></div></div>
-        <div class="stop"><div class="time">19:00</div><div><div class="what"><b>Myeongdong</b> night market crawl<span class="cost">~$1.50 transport · $10–15 food</span><a class="pin" href="https://maps.google.com/?cid=4270375483740491276" target="_blank" rel="noopener">Map ↗</a></div><img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjDkMxPijlKz1HouHeuLWVj1vTygp-UdsPKyoxVKd6scmXOLEDAiYLSge-Hoa6-mil9rot01knk9wpyZmosPb6sFnAB74TmV7L75e9_Kgla4LW9s30evRX1eJqfktmAPjilctI8xiRWnu5ywnQ=s4800-w800-h600" alt="Myeongdong" loading="lazy"><div class="note"><b>Subway Line 2</b> (green) direct from Samseong to Euljiro 1(il)-ga — no transfer needed, ~9.5 km, ~20 min. Walk 3–5 min or one stop on Line 4 to Myeongdong. Street food, shopping, neon.</div></div></div>
-        <div class="stop"><div class="time">21:00</div><div><div class="what"><b>N Seoul Tower</b> via Namsan Cable Car<span class="cost">~$11 round trip</span><a class="pin" href="https://maps.google.com/?cid=555211272804245478" target="_blank" rel="noopener">Map ↗</a></div><img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjDoUOPU0bCR-7UByEtcEt8zDsA-hK3-NlIP17OvoYerufWmuRlEzzy0fs4-nm9CuouzCmp1LQl_Dl_tICkMeywm4eBfOsvzfYXgnASCXOnNXiA4eU9l_0e3ecXgqDMzRM4OA90gWJYgvjjnWfk=s4800-w664-h401" alt="N Seoul Tower / Namsan Cable Car" loading="lazy"><div class="note">15-min walk uphill from Myeongdong to the cable car base, or a short taxi. Night views over the city — one of the best in Seoul, and Myeongdong sits right at the mountain's base so it's barely a detour.</div></div></div>
+        <div class="stop"><div class="time">18:15</div><div><div class="what"><b>Subway Line 2</b> to Euljiro 1(il)-ga<span class="cost">~$1.50 transport</span></div><div class="note">Direct from Samseong, no transfer, ~9.5 km, ~20 min.</div></div></div>
+        <div class="stop"><div class="time">18:45</div><div>
+          <div class="what">Evening loop, stop one<span class="cost">free–$1</span></div>
+          <img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjB3-cXUD9Q7XZBWUoz7bf3FHAj8skSo1uxHQEX7zIEcdV0yYfnsRSn4qPYTfNhxECFgNRoBgqdw4iTSqD8kamFgFjA82MmGxl4sW3ZADAXxuz4XKMLHaCbPMavPHziOZiCkWQmj9daIY5vMZg=s4800-w800-h600" alt="Sungnyemun Gate" loading="lazy">
+          <div class="opt-grid">
+            <div class="opt-card pick"><div class="opt-top"><span class="opt-name">Sungnyemun Gate</span><span class="opt-tag">Pick</span></div><div class="opt-meta"><span>~0.3 km · 5-min walk from station</span><span>free</span></div><div class="opt-note">National Treasure No. 1 — Korea's old south gate, lit up beautifully at night.</div><a class="pin" href="https://maps.google.com/?cid=13660656182679921379" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Deoksugung Palace & Stone Wall Walkway</span></div><div class="opt-meta"><span>~0.7 km · 9-min walk from station</span><span>$1</span></div><div class="opt-note">A quieter Joseon palace than Gyeongbokgung, with a famous tree-lined stone wall path along the outside — lovely at dusk.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Deoksugung+Palace+Stone+Wall+Walkway+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Cheonggyecheon Stream</span></div><div class="opt-meta"><span>~0.6 km · 8-min walk from station</span><span>free</span></div><div class="opt-note">Illuminated urban stream walk running through downtown — cooling, scenic, and a favorite evening spot for locals.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Cheonggyecheon+Stream+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+          </div>
+        </div></div>
+        <div class="stop"><div class="time">19:15</div><div>
+          <div class="what">Evening loop, snack stop<span class="cost">~$8–15 food</span></div>
+          <img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjCm4RunmyQ1r1dnnEt1MyflVb-MgtgbQyazm9cdwmL-u9DCowloJFfWEOVJ97pzLREP9mjYj-ngUZBTQZnwT4lvhLxVhRpBcARPmirM8U2gyDLPotjxPsxmxjBJupJq3gCwlFnFSEyr7Gyhdb1rgjsksA=s4800-w800-h600" alt="Namdaemun Market" loading="lazy">
+          <div class="opt-grid">
+            <div class="opt-card pick"><div class="opt-top"><span class="opt-name">Namdaemun Market — hotteok & kalguksu</span><span class="opt-tag">Pick</span></div><div class="opt-meta"><span>~0.2 km from the gate</span><span>$8–12</span></div><div class="opt-note">Korea's oldest traditional market — sweet pancakes and knife-cut noodle soup, quick and cheap.</div><a class="pin" href="https://maps.google.com/?cid=14787317685547704417" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Myeongdong Street Food Alley</span></div><div class="opt-meta"><span>~1 km · 12-min walk from the gate</span><span>$8–12</span></div><div class="opt-note">Tteokbokki, gyeran-bbang, cheese hotdogs — grazing food, and it's already on the way toward Namsan.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Myeongdong+Street+Food+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Bukchang-dong Grilled Fish Alley</span></div><div class="opt-meta"><span>~0.8 km · 10-min walk from the gate</span><span>$10–15</span></div><div class="opt-note">Famous grilled-mackerel alley near City Hall — more of a sit-down meal than a snack, good if you skip a full dinner tonight.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Bukchang-dong+Grilled+Fish+Alley+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+          </div>
+        </div></div>
+        <div class="stop"><div class="time">20:15</div><div>
+          <div class="what">Evening loop, Namsan<span class="cost">free–$20</span></div>
+          <img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjDoUOPU0bCR-7UByEtcEt8zDsA-hK3-NlIP17OvoYerufWmuRlEzzy0fs4-nm9CuouzCmp1LQl_Dl_tICkMeywm4eBfOsvzfYXgnASCXOnNXiA4eU9l_0e3ecXgqDMzRM4OA90gWJYgvjjnWfk=s4800-w664-h401" alt="N Seoul Tower" loading="lazy">
+          <div class="opt-grid">
+            <div class="opt-card pick"><div class="opt-top"><span class="opt-name">N Seoul Tower via Namsan Cable Car</span><span class="opt-tag">Pick</span></div><div class="opt-meta"><span>~1.3 km · 10-min walk to base station</span><span>$11 round trip</span></div><div class="opt-note">Night views over the whole city — cable car runs until 11pm.</div><a class="pin" href="https://maps.google.com/?cid=555211272804245478" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Namsan Park free trail + Locks of Love</span></div><div class="opt-meta"><span>same starting point</span><span>free</span></div><div class="opt-note">Walk or escalator up instead of the cable car, skip the paid observation deck — same park, same locks-of-love terrace, no ticket needed.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Namsan+Park+Locks+of+Love+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">N Seoul Tower Observatory + terrace drink</span></div><div class="opt-meta"><span>same base station</span><span>$15–20</span></div><div class="opt-note">Add the indoor observatory deck and a drink at the terrace cafe on top of the cable car ticket — the fuller version of tonight's view.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=N+Seoul+Tower+Observatory+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+          </div>
+        </div></div>
+        <div class="stop"><div class="time">21:15</div><div>
+          <div class="what">Evening loop, Myeongdong<span class="cost">free–$12</span></div>
+          <img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjDkMxPijlKz1HouHeuLWVj1vTygp-UdsPKyoxVKd6scmXOLEDAiYLSge-Hoa6-mil9rot01knk9wpyZmosPb6sFnAB74TmV7L75e9_Kgla4LW9s30evRX1eJqfktmAPjilctI8xiRWnu5ywnQ=s4800-w800-h600" alt="Myeongdong Shopping Street" loading="lazy">
+          <div class="opt-grid">
+            <div class="opt-card pick"><div class="opt-top"><span class="opt-name">Myeongdong Shopping Street + Olive Young</span><span class="opt-tag">Pick</span></div><div class="opt-meta"><span>short walk down from Namsan</span><span>free browsing</span></div><div class="opt-note">Cosmetics shops stay open until 22:30 — Olive Young flagship right on the main strip, plus Nature Republic, Innisfree, Daiso, and a Line Friends store all within a couple of blocks.</div><a class="pin" href="https://maps.google.com/?cid=4270375483740491276" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Myeongdong Cathedral</span></div><div class="opt-meta"><span>~0.3 km from the shopping street</span><span>free</span></div><div class="opt-note">A quiet, historic Gothic cathedral just off the main strip — a nice contrast to the shopping crowds, exterior view at night.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Myeongdong+Cathedral+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Sulbing dessert cafe, Myeongdong</span></div><div class="opt-meta"><span>~0.2 km from the shopping street</span><span>$8–12</span></div><div class="opt-note">Popular Korean shaved-ice (bingsu) chain — a good way to cool down after a full day of walking in the heat.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Sulbing+Myeongdong+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+          </div>
+        </div></div>
+        <div class="stop"><div class="time">22:30</div><div><div class="what">Back to hotel<span class="cost">~$1.50 transport</span></div><div class="note">Line 4 to City Hall, transfer Line 2 to Samseong, ~25 min. Or taxi, ~20 min.</div></div></div>
       </div>
-      <div class="meaning"><b>Why it's worth it:</b> after two conference rooms in a row, Myeongdong's chaos is a good kind of overwhelming — and since Namsan is right there, you get the city's best skyline view for almost no extra travel.</div>
+      <div class="meaning"><b>Why it's worth it:</b> a national treasure, Korea's oldest market, and the city's best skyline view all sit inside one 15-minute walking loop — one subway ride from the summit venue.</div>
+      <div class="hiccup"><b>Possible hiccups:</b><ul>
+        <li>Namsan Cable Car queues can run 30–45 min at peak evening hours in summer — the free hiking trail option skips the line entirely if you're short on time.</li>
+        <li>Summer haze can dull the view from N Seoul Tower's observatory on humid nights — the city lights are still worth it even without a crystal-clear skyline.</li>
+        <li>Some Namdaemun Market stalls close by 18:00–19:00 depending on the vendor — if you arrive later than planned, Myeongdong Street Food Alley stays open later.</li>
+      </ul></div>
       <div class="nav-btns"><button class="nav-btn" id="prevBtn3">← Previous day</button><button class="nav-btn" id="nextBtn3">Next day →</button></div>
     </div>
 
     <div class="day-panel" data-day="4">
       <div class="day-head">
         <div class="day-date">Fri · Aug 21</div>
-        <h1 class="day-title">Summit finale + campus crossing <span class="kr">금요일</span></h1>
+        <h1 class="day-title">Summit finale + Sejong + Banpo <span class="kr">금요일</span></h1>
         <div class="weather">
           <div class="temp">27° <span>/ 21°C</span></div>
-          <div class="wdesc"><b>Slightly milder, still humid.</b> You'll be outside more today between the campus walk and dinner — plan for sweat plus a dressier evening look.</div>
+          <div class="wdesc"><b>Slightly milder, still humid.</b> Campus walk by day, riverside dinner and a fountain show by night — casual, comfortable clothes work for both.</div>
         </div>
         <div class="outfit">
           <span class="chip">smart-casual by day</span>
-          <span class="chip">elevated outfit for Solbam</span>
-          <span class="chip">light jacket for AC</span>
+          <span class="chip">casual outfit for the riverside</span>
+          <span class="chip">light layer for the evening breeze</span>
         </div>
         <div class="day-media">
           <img src="https://lh3.googleusercontent.com/place-photos/AG9NLjA8YpvvpG7reqUwByw87el1l5JsSq-6jCMsbYo0ICCJaVQBKuK9ICp69kVMTCQzf1OUUZSDGN1ElVddqcBNnO5hrJRQX_cxiBY6d2e4DMNaqdR0_tGWg86NU8W8k0ulEaRiPTB1UYmeYjAA9g=s4800-w800-h600" alt="Sejong University" loading="lazy">
-          <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=127.02970%2C37.50707%2C127.08010%2C37.55527&layer=mapnik&marker=37.54927%2C127.07410" loading="lazy" title="Map of today's stops"></iframe>
+          <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=127.02811%2C37.50406%2C127.08010%2C37.55527&layer=mapnik&marker=37.54927%2C127.07410" loading="lazy" title="Map of today's stops"></iframe>
           <div class="cap"><span>Sejong University</span><span>Today's area</span></div>
         </div>
       </div>
       <div class="stops">
-        <div class="stop"><div class="time">08:00</div><div><div class="what">Breakfast — <b>Cheongwaok Hakdong</b><span class="cost">~$10–12 food</span><a class="pin" href="https://maps.google.com/?cid=7648116296943905782" target="_blank" rel="noopener">Map ↗</a></div><img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjDJoJNDcn_L9mEwCTpspdjh2qM1FUV-WRw5kNY5x3jU0GrZuaK-AXVeNhUh0gMrD2O8Al0ghQNu7fX1O2Zxq5D9U0jbf1HRdPCQRHfz0mT3TlSrUWaomZD2MTkpnlvqdtarTwHCO9j1Vynoqf9PsxdN4A=s4800-w800-h600" alt="Cheongwaok Hakdong" loading="lazy"><div class="note">7-min walk from the hotel. Sundae gukbap, opens 8am — hearty send-off before the campus crossing.</div></div></div>
+        <div class="stop"><div class="time">08:00</div><div>
+          <div class="what">Breakfast near the hotel<span class="cost">~$3–12 food</span></div>
+          <img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjDJoJNDcn_L9mEwCTpspdjh2qM1FUV-WRw5kNY5x3jU0GrZuaK-AXVeNhUh0gMrD2O8Al0ghQNu7fX1O2Zxq5D9U0jbf1HRdPCQRHfz0mT3TlSrUWaomZD2MTkpnlvqdtarTwHCO9j1Vynoqf9PsxdN4A=s4800-w800-h600" alt="Cheongwaok Hakdong" loading="lazy">
+          <div class="opt-grid">
+            <div class="opt-card pick"><div class="opt-top"><span class="opt-name">Cheongwaok Hakdong</span><span class="opt-tag">Pick</span></div><div class="opt-meta"><span>~0.5 km · 7-min walk from hotel</span><span>$10–12</span></div><div class="opt-note">Sundae gukbap, opens 8am — a heartier send-off before the closing sessions.</div><a class="pin" href="https://maps.google.com/?cid=7648116296943905782" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Isaac Toast, Samseong</span></div><div class="opt-meta"><span>~0.4 km · 5-min walk</span><span>$3–5</span></div><div class="opt-note">Grab-and-go toasted sandwiches — quickest option if you're packing for the Sejong University visit right after.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Isaac+Toast+Samseong+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Angel-in-us Coffee, Samseong</span></div><div class="opt-meta"><span>~0.3 km · 4-min walk</span><span>$6–8</span></div><div class="opt-note">Korean cafe chain — coffee and a pastry, comfortable seating for a slower final-day-of-summit morning.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Angel-in-us+Coffee+Samseong+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+          </div>
+        </div></div>
+        <div class="stop"><div class="time">08:45</div><div><div class="what">Walk to <b>COEX Grand Ballroom</b></div><div class="note">10 minutes on foot.</div></div></div>
         <div class="stop"><div class="time">09:00–12:30</div><div><div class="what">Closing sessions at COEX</div></div></div>
-        <div class="stop"><div class="time">13:00</div><div><div class="what">Taxi to <b>Sejong University</b><span class="cost">~$9–11 transport</span><a class="pin" href="https://maps.google.com/?cid=1908076492013036779" target="_blank" rel="noopener">Map ↗</a></div><img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjA8YpvvpG7reqUwByw87el1l5JsSq-6jCMsbYo0ICCJaVQBKuK9ICp69kVMTCQzf1OUUZSDGN1ElVddqcBNnO5hrJRQX_cxiBY6d2e4DMNaqdR0_tGWg86NU8W8k0ulEaRiPTB1UYmeYjAA9g=s4800-w800-h600" alt="Sejong University" loading="lazy"><div class="note">Taxi is simplest, ~4.5 km direct, ~20–25 min, ~₩12–15k. By subway: <b>Line 2</b> from Samseong to Konkuk University (~3.5 km), transfer to <b>Line 7</b>, one stop to Gunja Station (~2.1 km), then a 10-min / ~1 km walk (~35 min total, ~$1.50).</div></div></div>
-        <div class="stop"><div class="time">14:00</div><div><div class="what">Campus walk + coffee at <b>Mouse Rabbit Coffee</b><span class="cost">~$5–7 food</span><a class="pin" href="https://maps.google.com/?cid=3830637633193222543" target="_blank" rel="noopener">Map ↗</a></div><img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjCNkBgNl0B5PeQZEFvfr_vJS8O8dBSCluc6TypjP0wfaDKnXqmGLLlbPbWMVVfz5cDXBs-gu0wqBrpat8TSKZmqTPXjG5Euf-2hH07KCL3sz-dMr_l80XOyTHsCaChkmZrjaxtCucjaJb10=s4800-w800-h600" alt="Mouse Rabbit Coffee" loading="lazy"><div class="note">~0.9 km, 12-min walk from campus.</div></div></div>
-        <div class="stop"><div class="time">15:00</div><div><div class="what"><b>Ttukseom Hangang Park</b><span class="cost">~$5–10 snacks</span><a class="pin" href="https://maps.google.com/?cid=9887225714262480147" target="_blank" rel="noopener">Map ↗</a></div><img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjCwyJpNt2BDh_vpXMYDUuUKNpPjBo4KBZywgerxK0WVaFract3-UinmIio1sKEJlld1tnrrtoJG9FU5O6ydQcHoKEJ3Al9KbHZ6WrW2ajva6LHzc1DAl5UQ2lWkXBCAjyR_BqAbMZHL8Vvdnw=s4800-w800-h600" alt="Ttukseom Hangang Park" loading="lazy"><div class="note">10-min taxi from campus. Rent a bike, grab convenience-store ramyeon by the river — the classic Seoul way to spend a free afternoon.</div></div></div>
-        <div class="stop"><div class="time">17:00</div><div><div class="what">Head back to Gangnam</div><div class="note">Taxi or subway (Line 7 to Line 2 via Konkuk University), ~30–40 min — time to shower off the park before dinner.</div></div></div>
-        <div class="stop"><div class="time">19:00</div><div><div class="what">Farewell tasting menu — <b>Solbam</b><span class="cost">~$150–200 food</span><a class="pin" href="https://maps.google.com/?cid=1997303951319506031" target="_blank" rel="noopener">Map ↗</a></div><img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjDEy0UgiBaDoHiOaQX57fxdi_xXTrKDxM6Xce1kTx72rWMCdxvpA9-Suj9mPBVBs3HhHrUKnoRXFay5QQ7c6sUUhPSSFPfeQCuYBOO_tuIidJ0BPnfDWxCcHxoKWQV9DLlSwnQAp9pzaSfVWQ=s4800-w800-h600" alt="Solbam" loading="lazy"><div class="note">Book via Catchtable a month out — this one fills fast, and like Jungsik, it runs well above the per diem.</div></div></div>
+        <div class="stop"><div class="time">13:00</div><div><div class="what">Taxi to <b>Sejong University</b><span class="cost">~$9–11 transport</span><a class="pin" href="https://maps.google.com/?cid=1908076492013036779" target="_blank" rel="noopener">Map ↗</a></div><img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjA8YpvvpG7reqUwByw87el1l5JsSq-6jCMsbYo0ICCJaVQBKuK9ICp69kVMTCQzf1OUUZSDGN1ElVddqcBNnO5hrJRQX_cxiBY6d2e4DMNaqdR0_tGWg86NU8W8k0ulEaRiPTB1UYmeYjAA9g=s4800-w800-h600" alt="Sejong University" loading="lazy"><div class="note">~4.5 km, ~15–20 min by taxi from COEX.</div></div></div>
+        <div class="stop"><div class="time">14:00</div><div>
+          <div class="what">Campus area, afternoon<span class="cost">free–$7</span></div>
+          <img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjCNkBgNl0B5PeQZEFvfr_vJS8O8dBSCluc6TypjP0wfaDKnXqmGLLlbPbWMVVfz5cDXBs-gu0wqBrpat8TSKZmqTPXjG5Euf-2hH07KCL3sz-dMr_l80XOyTHsCaChkmZrjaxtCucjaJb10=s4800-w800-h600" alt="Mouse Rabbit Coffee" loading="lazy">
+          <div class="opt-grid">
+            <div class="opt-card pick"><div class="opt-top"><span class="opt-name">Campus walk + Mouse Rabbit Coffee</span><span class="opt-tag">Pick</span></div><div class="opt-meta"><span>~0.9 km · 12-min walk from campus</span><span>$5–7</span></div><div class="opt-note">A relaxed coffee stop after wandering the Sejong University grounds.</div><a class="pin" href="https://maps.google.com/?cid=3830637633193222543" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Achasan Trail entrance walk</span></div><div class="opt-meta"><span>~1.5 km · 15-min walk from campus</span><span>free</span></div><div class="opt-note">A short scenic mountain-adjacent trail near the campus — good fresh air if you'd rather not sit down yet, easy to turn back whenever.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Achasan+Trail+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Common Ground, Konkuk University area</span></div><div class="opt-meta"><span>~2 km · 10-min taxi from campus</span><span>free browsing</span></div><div class="opt-note">Trendy container-box mall near the neighboring university — an Olive Young branch, Daiso, streetwear boutiques, and cafes, a livelier alternative to a quiet campus coffee.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Common+Ground+Konkuk+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+          </div>
+        </div></div>
+        <div class="stop"><div class="time">15:30</div><div><div class="what">Rest back at the hotel</div><div class="note">A couple of hours free before heading out for the evening.</div></div></div>
+        <div class="stop"><div class="time">18:00</div><div>
+          <div class="what">Getting to Banpo Hangang Park<span class="cost">~$1.50–13 transport</span></div>
+          <div class="opt-grid">
+            <div class="opt-card pick"><div class="opt-top"><span class="opt-name">Taxi, direct</span><span class="opt-tag">Pick</span></div><div class="opt-meta"><span>~9.5 km from hotel</span><span>$10–13</span></div><div class="opt-note">Fastest, easiest option — door to door in one ride.</div></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Subway + short walk</span></div><div class="opt-meta"><span>Line 2 to Express Bus Terminal, transfer</span><span>$1.50</span></div><div class="opt-note">Budget option — about 35–40 minutes total including the walk into the park, air-conditioned the whole way.</div></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Ttareungyi city bike, partway</span></div><div class="opt-meta"><span>bike dock near hotel</span><span>~$1</span></div><div class="opt-note">Cheapest and most scenic if the evening isn't too hot — dock the bike near the park entrance and walk the last stretch.</div></div>
+          </div>
+        </div></div>
+        <div class="stop"><div class="time">18:30</div><div>
+          <div class="what">Dinner at Banpo<span class="cost">~$5–25 food & drinks</span></div>
+          <img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjCbfHVjDlleLVQnM1Vl-eXBRR36oMKne7eLQxDyBIiy2Kzb3z7353abf88jxH3Hl6Y_IZ7SCOeSgeu0nlREx2BGjCaPi9RXvpiAIxWsMAD3jCK7-oVEryNoKNJM-qVowa-zc1l3lF9NLKY2h7t1jK7Cxg=s4800-w800-h600" alt="Beer Garden at Banpo Hangang Park" loading="lazy">
+          <div class="opt-grid">
+            <div class="opt-card pick"><div class="opt-top"><span class="opt-name">Beer Garden, riverside</span><span class="opt-tag">Pick</span></div><div class="opt-meta"><span>right inside the park</span><span>$20–25</span></div><div class="opt-note">The best seats for what's coming — order early to grab an outdoor spot before the show starts filling up.</div><a class="pin" href="https://maps.google.com/?cid=5651481207738318243" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Convenience-store ramen picnic</span></div><div class="opt-meta"><span>CU/GS25 inside the park</span><span>$5–8</span></div><div class="opt-note">The classic budget Han River picnic — instant ramen from the in-park convenience store cookers, mat on the lawn. A genuinely iconic cheap Seoul experience.</div></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Han River food-truck row</span></div><div class="opt-meta"><span>along the riverside path</span><span>$8–15</span></div><div class="opt-note">Rotating food trucks with casual fusion bites — a middle ground between the beer garden and a bare picnic.</div></div>
+          </div>
+        </div></div>
+        <div class="stop"><div class="time">19:30</div><div>
+          <div class="what"><b>Banpo Bridge Rainbow Fountain</b> show — best viewing spots<span class="cost">free</span></div>
+          <img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjB-sUpK8zoSFkTdSTcsXU50OpLx-0_BcYlhn75Wk_C4JONHlR1WVsmgeBeroQoKRNj5z7_HiMM9UtXNxAvTV1X1uWjmfN52sQdwXybtlP_BtQq1_ezVkfDIkDiNFaQfdTD0Fs-4fk6FTjxEpg=s4800-w800-h600" alt="Banpo Bridge Rainbow Fountain" loading="lazy">
+          <div class="opt-grid">
+            <div class="opt-card pick"><div class="opt-top"><span class="opt-name">Riverside deck by the Beer Garden</span><span class="opt-tag">Pick</span></div><div class="opt-meta"><span>no need to move</span><span>free</span></div><div class="opt-note">You're already at the best straight-on view. Guinness World Record for longest bridge fountain, shows run every 30 min after dark.</div><a class="pin" href="https://maps.google.com/?cid=7196672692089808831" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Sevit Floating Island viewpoint</span></div><div class="opt-meta"><span>~1 km · 12-min walk east</span><span>free</span></div><div class="opt-note">A different angle on the fountain plus the illuminated floating island architecture itself — usually less crowded.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Sevit+Floating+Island+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Banpo Hangang Park lawn</span></div><div class="opt-meta"><span>set back from the bridge</span><span>free</span></div><div class="opt-note">Farther from the action but far more relaxed — bring a mat if the deck areas look packed.</div></div>
+          </div>
+        </div></div>
+        <div class="stop"><div class="time">21:00</div><div><div class="what">Back to hotel</div><div class="note">~20-min taxi from Banpo to Shilla Stay COEX.</div></div></div>
       </div>
-      <div class="meaning"><b>Why it's worth it:</b> closing the summit on campus grounds and closing the trip on a chef's tasting menu — two very different kinds of "well done."</div>
+      <div class="meaning"><b>Why it's worth it:</b> dinner and the fountain show happen at the same spot, so there's no second trip — you eat, the sun goes down, and the show starts right where you're sitting. A genuinely memorable close to the summit for the price of a casual dinner.</div>
+      <div class="hiccup"><b>Possible hiccups:</b><ul>
+        <li>Closing sessions can run over — if the 12:30 end time slips, treat the Sejong University visit as the flexible part of the afternoon, not the Banpo dinner.</li>
+        <li>Taxis get scarce right as the summit lets out, with many attendees requesting rides at once — have a ride-hailing app (Kakao T) ready as backup, or expect a longer wait.</li>
+        <li>The Banpo Bridge Rainbow Fountain doesn't run in heavy rain, high wind, or during dry-season water restrictions — check the schedule that afternoon before building the evening around it.</li>
+      </ul></div>
       <div class="nav-btns"><button class="nav-btn" id="prevBtn4">← Previous day</button><button class="nav-btn" id="nextBtn4">Next day →</button></div>
     </div>
 
     <div class="day-panel" data-day="5">
       <div class="day-head">
         <div class="day-date">Sat · Aug 22</div>
-        <h1 class="day-title">Bonus Seoul, then wheels up <span class="kr">토요일</span></h1>
+        <h1 class="day-title">Jongno friends + Old Seoul <span class="kr">토요일</span></h1>
         <div class="weather">
           <div class="temp">27° <span>/ 20°C</span></div>
-          <div class="wdesc"><b>Full day outdoors — market, palace, hanok village.</b> Highest rain chance of the trip late in August, so keep the umbrella handy for the palace visit.</div>
+          <div class="wdesc"><b>Full day outdoors — friends, palace, hanok alleys.</b> Highest rain chance of the trip late in August, so keep the umbrella handy.</div>
         </div>
         <div class="outfit">
           <span class="chip">sun hat / cap</span>
@@ -662,22 +887,85 @@
         </div>
         <div class="day-media">
           <img src="https://lh3.googleusercontent.com/place-photos/AG9NLjAH_xAD5xqwPGf7Bw6W_c---M9bGxuNHV4D1ODgEen4UA3ohM9KnqWBgT0dznlmpTH1_6tBjEjwX7BGkhIJCzi0W1dAXatpFywfEDrdXlAj_xgBtcCP6RW-eVGhPgW86JDW4vYxDNSlNlwu8xM=s4800-w800-h600" alt="Gyeongbokgung Palace" loading="lazy">
-          <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=126.97104%2C37.50395%2C127.06913%2C37.58747&layer=mapnik&marker=37.57962%2C126.97704" loading="lazy" title="Map of today's stops"></iframe>
+          <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=126.96931%2C37.55502%2C127.00560%2C37.58747&layer=mapnik&marker=37.56932%2C126.98905" loading="lazy" title="Map of today's stops"></iframe>
           <div class="cap"><span>Gyeongbokgung Palace</span><span>Today's area</span></div>
         </div>
       </div>
       <div class="stops">
-        <div class="stop"><div class="time">08:00</div><div><div class="what">Checkout, luggage held at the bell desk</div><div class="note">Flight isn't until 20:30 — you get a full free day.</div></div></div>
-        <div class="stop"><div class="time">08:30</div><div><div class="what">Breakfast crawl — <b>Gwangjang Market</b><span class="cost">~$8–12 food · $1.50 transport</span><a class="pin" href="https://maps.google.com/?cid=15444711502569316164" target="_blank" rel="noopener">Map ↗</a></div><img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjByyfBaBqsPfPellAZvS7V_rBExx9KP6KM87uCP3FRHBH8BJosVQ-RD-3uXBtlKyGuCZWftgNBufUtpgvYeW_emM7TpNpfmBmagipqcJxFMiDGpyvig6AgcJ4syqmyoTj0PlYuWqiLYx0BaHavgZbZ9Cg=s4800-w800-h600" alt="Gwangjang Market" loading="lazy"><div class="note"><b>Subway Line 2</b> direct from Samseong to Euljiro 4-ga, ~8.8 km, ~15 min, no transfer. Walk 5 min north to the market. Bindaetteok and mayak gimbap, before the crowds.</div></div></div>
-        <div class="stop"><div class="time">10:30</div><div><div class="what"><b>Gyeongbokgung Palace</b><span class="cost">~$2.50 entry</span><a class="pin" href="https://maps.google.com/?cid=10029593693201569270" target="_blank" rel="noopener">Map ↗</a></div><img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjAH_xAD5xqwPGf7Bw6W_c---M9bGxuNHV4D1ODgEen4UA3ohM9KnqWBgT0dznlmpTH1_6tBjEjwX7BGkhIJCzi0W1dAXatpFywfEDrdXlAj_xgBtcCP6RW-eVGhPgW86JDW4vYxDNSlNlwu8xM=s4800-w800-h600" alt="Gyeongbokgung Palace" loading="lazy"><div class="note">From Euljiro 4-ga, switch to <b>Line 5</b> (same station) and ride to Gwanghwamun Station — Exit 2 leads straight to the palace gate, ~2.3 km, ~10 min. Time it for the 11:00 changing-of-the-guard ceremony.</div></div></div>
-        <div class="stop"><div class="time">12:30</div><div><div class="what"><b>Bukchon Hanok Village</b> photo walk<a class="pin" href="https://maps.google.com/?cid=14824929312700491162" target="_blank" rel="noopener">Map ↗</a></div><img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjB1SFLOKliG5hsKlbGPZ_au85AQiuPRcyl9iSntjVftXkwLkFXTPywb7CETtlm7QMkJjuaT7yJtybFHP2GIBLkRebhBB8SAeZ9G0aydIo6JMe5cPcem7EPI3qHugClXQ9nInd6LoePVPV-HpfI=s4800-w800-h600" alt="Bukchon Hanok Village" loading="lazy"><div class="note">~0.7 km, 5-minute walk from the palace.</div></div></div>
-        <div class="stop"><div class="time">13:30</div><div><div class="what">Lunch in Insadong<span class="cost">~$12–15 food</span><a class="pin" href="https://maps.google.com/?cid=5601897440755213732" target="_blank" rel="noopener">Map ↗</a></div><img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjCXo5k6PRHv-tZE4mrqXxLEZQhSRNNVdmOpMPCUZzxBnnpaQCw8PhLvo1TQZLy8XlAWQIcPFdwV0W_-sSQYMAX49ktN0TQBQE6lGCHfcNjYeiTKwXXWbf4mu8UZv2aJDQ7tPaRcHNni_FVb7tU=s4800-w800-h600" alt="Insadong" loading="lazy"><div class="note">~1.1 km, 12-min walk from Bukchon.</div></div></div>
-        <div class="stop"><div class="time">14:30</div><div><div class="what"><b>Ikseon-dong Hanok Village</b><span class="cost">~$5–8 coffee</span><a class="pin" href="https://maps.google.com/?cid=10117955504964711899" target="_blank" rel="noopener">Map ↗</a></div><img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjDCKVu9wH4T1kwbB1xdP8Unr_rDx9GUZs05PKpNnjgaHzdk9mZrukb9pKn6qUStfPq3fic2716RzScheaMebaoxU8QbRuSJ0qUw2NCDo4rP-BoWefTNoEUaf7Lp_oaVvpR5vsQapeJDDJ0edQ=s4800-w800-h600" alt="Ikseon-dong Hanok Village" loading="lazy"><div class="note">8-min walk from Insadong. Narrow hanok alleys packed with small cafes — a quieter last stop before the airport run.</div></div></div>
-        <div class="stop"><div class="time">15:30</div><div><div class="what">Back to hotel for luggage<span class="cost">~$10–13 transport</span></div><div class="note">Taxi is easiest with the time crunch, ~9.7 km, ~15–20 min. By subway: <b>Line 3</b> from Anguk to Euljiro 3(sam)-ga, transfer to <b>Line 2</b>, ride to Samseong (~35–40 min, ~$1.50).</div></div></div>
-        <div class="stop"><div class="time">16:00</div><div><div class="what">Head to <b>Incheon Airport</b><span class="cost">~$9–15 transport</span></div><div class="note"><b>Airport Limousine Bus #6103</b> — non-stop from COEX City Airport Terminal (2F ticket booth) back to ICN T1, ~62 km, ~65–90 min. Buses run roughly every 50–65 min, so check the board before you leave the palace area.</div></div></div>
+        <div class="stop"><div class="time">07:30</div><div><div class="what">Checkout, luggage held at the <b>Shilla Stay</b> bell desk</div><div class="note">Flight isn't until 20:30 — you get a full free day. You'll swing back here before heading to the airport.</div></div></div>
+        <div class="stop"><div class="time">08:00</div><div><div class="what">Taxi to <b>Hotel the Designers Jongno</b> to meet friends<span class="cost">~$15–18 transport</span><a class="pin" href="https://maps.google.com/?cid=1368431404401387531" target="_blank" rel="noopener">Map ↗</a></div><img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjBhbCFQx1ah3RqDyI8VN2B75aR3nEAEB4uEjYW0LqoxynRc-2uQAuIGeoObEBXCPp_MAlPOAVYN5pNAtNQ5o-Hglk6zAaXLFPhM2lusxOUkyBnzFu32DY0L3_VuNCFX2MVXIBqG-TymHAcSiA=s4800-w800-h600" alt="Hotel the Designers Jongno" loading="lazy"><div class="note">~9.3 km, ~25–30 min. This is a visit only — you're still checked out of Shilla Stay, not staying here.</div></div></div>
+        <div class="stop"><div class="time">08:30</div><div>
+          <div class="what">Breakfast / coffee with friends<span class="cost">~$5–18 food</span></div>
+          <div class="opt-grid">
+            <div class="opt-card pick"><div class="opt-top"><span class="opt-name">Cafes around Hotel the Designers Jongno</span><span class="opt-tag">Pick</span></div><div class="opt-meta"><span>right around the hotel</span><span>$5–8</span></div><div class="opt-note">Plenty of casual coffee options nearby — easiest if the group just wants to catch up first.</div></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Tosokchon Samgyetang</span></div><div class="opt-meta"><span>~1 km · 12-min walk toward Gyeongbokgung</span><span>$15–18</span></div><div class="opt-note">Iconic ginseng chicken soup institution near the palace — a hearty, memorable brunch if the group wants a real sit-down meal instead of coffee.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Tosokchon+Samgyetang+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Cafe Onion, Anguk</span></div><div class="opt-meta"><span>~1 km · 12-min walk</span><span>$6–10</span></div><div class="opt-note">Trendy hanok-building cafe near Gyeongbokgung, famous for its pastries — a good photogenic stop on the way to the palace.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Cafe+Onion+Anguk+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+          </div>
+        </div></div>
+        <div class="stop"><div class="time">09:45</div><div>
+          <div class="what">Gyeongbokgung Palace<span class="cost">$2.50–20</span></div>
+          <img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjAH_xAD5xqwPGf7Bw6W_c---M9bGxuNHV4D1ODgEen4UA3ohM9KnqWBgT0dznlmpTH1_6tBjEjwX7BGkhIJCzi0W1dAXatpFywfEDrdXlAj_xgBtcCP6RW-eVGhPgW86JDW4vYxDNSlNlwu8xM=s4800-w800-h600" alt="Gyeongbokgung Palace" loading="lazy">
+          <div class="opt-grid">
+            <div class="opt-card pick"><div class="opt-top"><span class="opt-name">Gyeongbokgung Palace, standard entry</span><span class="opt-tag">Pick</span></div><div class="opt-meta"><span>~1.6 km · 20-min walk from breakfast</span><span>$2.50</span></div><div class="opt-note">Open Saturdays — catch the 11:00 changing-of-the-guard ceremony.</div><a class="pin" href="https://maps.google.com/?cid=10029593693201569270" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Hanbok rental + free palace entry</span></div><div class="opt-meta"><span>rental shops just outside the palace</span><span>$15–20</span></div><div class="opt-note">Wearing traditional hanbok gets you free admission — a popular photo-friendly option if the group is up for it.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Hanbok+rental+Gyeongbokgung+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">National Palace Museum of Korea</span></div><div class="opt-meta"><span>inside the palace grounds</span><span>free</span></div><div class="opt-note">Indoor, air-conditioned alternative — Joseon-dynasty artifacts, a good backup if it's raining.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=National+Palace+Museum+of+Korea+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+          </div>
+        </div></div>
+        <div class="stop"><div class="time">11:15</div><div>
+          <div class="what">Bukchon area<span class="cost">free</span></div>
+          <img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjB1SFLOKliG5hsKlbGPZ_au85AQiuPRcyl9iSntjVftXkwLkFXTPywb7CETtlm7QMkJjuaT7yJtybFHP2GIBLkRebhBB8SAeZ9G0aydIo6JMe5cPcem7EPI3qHugClXQ9nInd6LoePVPV-HpfI=s4800-w800-h600" alt="Bukchon Hanok Village" loading="lazy">
+          <div class="opt-grid">
+            <div class="opt-card pick"><div class="opt-top"><span class="opt-name">Bukchon Hanok Village</span><span class="opt-tag">Pick</span></div><div class="opt-meta"><span>~1.4 km · 15-min walk from palace</span><span>free</span></div><div class="opt-note">Traditional hanok houses on a hillside street — one of Seoul's most photographed neighborhoods.</div><a class="pin" href="https://maps.google.com/?cid=14824929312700491162" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">National Folk Museum of Korea</span></div><div class="opt-meta"><span>inside the palace grounds, near Bukchon side</span><span>free</span></div><div class="opt-note">Indoor exhibits on everyday Korean life and history — a good rainy-day alternative that keeps you in the same area.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=National+Folk+Museum+of+Korea+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Samcheong-dong galleries & boutique street</span></div><div class="opt-meta"><span>adjacent to Bukchon</span><span>free browsing</span></div><div class="opt-note">Small independent galleries and design shops — quieter than the main hanok street, good for slower browsing.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Samcheong-dong+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+          </div>
+        </div></div>
+        <div class="stop"><div class="time">12:15</div><div>
+          <div class="what">Lunch in Insadong<span class="cost">~$5–25 food</span></div>
+          <img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjCXo5k6PRHv-tZE4mrqXxLEZQhSRNNVdmOpMPCUZzxBnnpaQCw8PhLvo1TQZLy8XlAWQIcPFdwV0W_-sSQYMAX49ktN0TQBQE6lGCHfcNjYeiTKwXXWbf4mu8UZv2aJDQ7tPaRcHNni_FVb7tU=s4800-w800-h600" alt="Insadong-gil" loading="lazy">
+          <div class="opt-grid">
+            <div class="opt-card pick"><div class="opt-top"><span class="opt-name">Insadong-gil food street</span><span class="opt-tag">Pick</span></div><div class="opt-meta"><span>~0.4 km from Bukchon</span><span>$12–15</span></div><div class="opt-note">Tea houses, galleries, street snacks — the classic Insadong lunch stroll.</div><a class="pin" href="https://maps.google.com/?cid=5601897440755213732" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Insadong tteok & Ssamziegil market snacks</span></div><div class="opt-meta"><span>same street</span><span>$5–8</span></div><div class="opt-note">Budget option — graze rice-cake stalls and the small designer-market shops inside Ssamziegil instead of a sit-down meal.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Ssamziegil+Insadong+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Sanchon, Buddhist temple cuisine</span></div><div class="opt-meta"><span>~0.3 km off the main street</span><span>$20–25</span></div><div class="opt-note">A set-menu vegetarian temple-food experience in a traditional hanok setting — a memorable splurge lunch if the group wants something different.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Sanchon+Temple+Food+Insadong+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+          </div>
+        </div></div>
+        <div class="stop"><div class="time">13:15</div><div>
+          <div class="what">Gwangjang area<span class="cost">$8–15</span></div>
+          <img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjByyfBaBqsPfPellAZvS7V_rBExx9KP6KM87uCP3FRHBH8BJosVQ-RD-3uXBtlKyGuCZWftgNBufUtpgvYeW_emM7TpNpfmBmagipqcJxFMiDGpyvig6AgcJ4syqmyoTj0PlYuWqiLYx0BaHavgZbZ9Cg=s4800-w800-h600" alt="Gwangjang Market" loading="lazy">
+          <div class="opt-grid">
+            <div class="opt-card pick"><div class="opt-top"><span class="opt-name">Gwangjang Market</span><span class="opt-tag">Pick</span></div><div class="opt-meta"><span>~0.9 km from Insadong</span><span>$8–12</span></div><div class="opt-note">Bindaetteok and mayak gimbap — a snack round, not a full meal, in one of Seoul's oldest markets.</div><a class="pin" href="https://maps.google.com/?cid=15444711502569316164" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Cheonggyecheon Stream, Gwangjang stretch</span></div><div class="opt-meta"><span>runs alongside the market</span><span>free</span></div><div class="opt-note">A short scenic stream walk connecting Gwangjang toward the next stop — good if you'd rather stretch your legs than eat again so soon.</div></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Dongdaemun Market</span></div><div class="opt-meta"><span>~1.5 km · 15-min walk/taxi</span><span>varies</span></div><div class="opt-note">Larger fashion and textile market with its own food stalls — only if the group has extra time and energy for a second market.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Dongdaemun+Market+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+          </div>
+        </div></div>
+        <div class="stop"><div class="time">14:15</div><div>
+          <div class="what">Ikseon-dong area<span class="cost">free–$8</span></div>
+          <img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjDCKVu9wH4T1kwbB1xdP8Unr_rDx9GUZs05PKpNnjgaHzdk9mZrukb9pKn6qUStfPq3fic2716RzScheaMebaoxU8QbRuSJ0qUw2NCDo4rP-BoWefTNoEUaf7Lp_oaVvpR5vsQapeJDDJ0edQ=s4800-w800-h600" alt="Ikseon-dong Hanok Village" loading="lazy">
+          <div class="opt-grid">
+            <div class="opt-card pick"><div class="opt-top"><span class="opt-name">Ikseon-dong Hanok Village</span><span class="opt-tag">Pick</span></div><div class="opt-meta"><span>~0.5 km from Gwangjang</span><span>$5–8</span></div><div class="opt-note">Narrow hanok alleys, small cafes — a good place to say goodbye to friends.</div><a class="pin" href="https://maps.google.com/?cid=10117955504964711899" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Seoul Museum of Craft Art (SeMoCA)</span></div><div class="opt-meta"><span>~0.7 km · near Anguk</span><span>free</span></div><div class="opt-note">Modern craft museum set in restored hanok-style buildings — indoor, air-conditioned, quieter than the alleys.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Seoul+Museum+of+Craft+Art+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Jongmyo Shrine</span></div><div class="opt-meta"><span>~0.8 km · adjacent area</span><span>$1</span></div><div class="opt-note">UNESCO-listed royal ancestral shrine — quiet, forested, a calm contrast to the bustling markets earlier in the day.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Jongmyo+Shrine+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+          </div>
+        </div></div>
+        <div class="stop"><div class="time">15:30</div><div>
+          <div class="what">Optional — last stretch before the airport transfer<span class="cost">free–$1.50</span></div>
+          <img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjDLXsoUcHSgeXtrConJ9eyXhsrjX8nY0mtyIdKDd6wooJnqYUksj0d8KTgDawx-Zf4rnKl1bYsWXirlpV3y4c1s7vvOrtKMPElk02zO5Wf83w0YVxRNoPHJhpvgsjqRyD0Wi3KMNwSznLihp6s=s4800-w512-h341" alt="Hongdae Shopping Street" loading="lazy">
+          <div class="opt-grid">
+            <div class="opt-card pick"><div class="opt-top"><span class="opt-name">Hongdae</span><span class="opt-tag">Pick</span></div><div class="opt-meta"><span>~25-min subway from Ikseon-dong</span><span>$1.50</span></div><div class="opt-note">Youth-culture shopping and street performances — one of Seoul's biggest Olive Young branches, Daiso, indie fashion boutiques, plus Nature Republic and Artbox nearby. This is the first thing to cut if you're running late — the airport transfer needs the afternoon more than Hongdae does.</div><a class="pin" href="https://maps.google.com/?cid=14349369460367289050" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Ewha Womans University Street</span></div><div class="opt-meta"><span>~10 min from Hongdae</span><span>free browsing</span></div><div class="opt-note">Distinctive campus architecture and boutique shops nearby — a quieter alternative if Hongdae feels like too much on a travel day.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Ewha+Womans+University+Street+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Skip it — extra rest near Ikseon-dong</span></div><div class="opt-meta"><span>stay put</span><span>free</span></div><div class="opt-note">Lowest-risk choice for making the airport transfer comfortably — a last coffee and buffer time before heading back for luggage.</div></div>
+          </div>
+        </div></div>
+        <div class="stop"><div class="time">16:15</div><div><div class="what">Back to <b>Shilla Stay COEX</b> for luggage<span class="cost">~$15–18 transport</span></div><div class="note">~9–10 km, ~25–30 min by taxi from Jongno/Ikseon-dong.</div></div></div>
+        <div class="stop"><div class="time">16:45</div><div><div class="what">Head to <b>Incheon Airport</b><span class="cost">~$9–15 transport</span></div><div class="note"><b>Airport Limousine Bus #6103</b> — non-stop from the COEX City Airport Terminal, ~65–90 min. Buses run roughly every 50–65 min.</div></div></div>
         <div class="stop"><div class="time">20:30</div><div><div class="what">Depart — <b>PR403 to Manila</b></div><div class="note">Lands 23:40. Trip complete.</div></div></div>
       </div>
-      <div class="meaning"><b>Why it's worth it:</b> the 20:30 departure means you get an entire last day — enough time for Seoul's single most iconic royal site, not just the neighborhood next to your hotel.</div>
+      <div class="meaning"><b>Why it's worth it:</b> the friends visit doubles as the gateway into Seoul's old town — Gyeongbokgung, Bukchon, Insadong, Gwangjang, and Ikseon-dong are all within a 20-minute walk of where you'll be anyway. Hongdae is the one piece that only fits if the day runs ahead of schedule.</div>
+      <div class="hiccup"><b>Possible hiccups:</b><ul>
+        <li>Weekend crowds at Gyeongbokgung can mean a real line for hanbok rental, with limited larger sizes — arrive at the rental shop as early as possible if that's the plan.</li>
+        <li>The 11:00 changing-of-the-guard ceremony is sometimes cancelled in extreme heat or heavy rain — have Bukchon or the Folk Museum ready to fill that slot if it doesn't happen.</li>
+        <li>Saturday evening traffic can slow the airport limousine bus — if you're cutting it close after Hongdae or Ikseon-dong, switch to the subway (unaffected by road traffic) or head back before 16:45.</li>
+      </ul></div>
       <div class="nav-btns"><button class="nav-btn" id="prevBtn5">← Previous day</button><button class="nav-btn" id="nextBtn5">Budget →</button></div>
     </div>
 
@@ -688,7 +976,7 @@
       </div>
       <p style="color:var(--text-dim); font-size:15px; margin:10px 0 20px; line-height:1.6;">Every figure is editable — change any amount and the totals, chart, and per-day numbers update instantly.</p>
 
-      <div class="meaning" style="margin-bottom:20px;"><b>Reconciling with the day-by-day view:</b> the small cost tags on each day's stops are per-person, out-of-pocket estimates for that specific taxi ride or meal. Breakfast runs ~$8–12 each day and lunches ~$12–18 — both comfortably inside the $20 per diem. Jungsik and Solbam are the two dinners that will eat into other categories, so budget those two nights separately if you want the per diem to actually cover the rest of your meals.</div>
+      <div class="meaning" style="margin-bottom:20px;"><b>Reconciling with the day-by-day view:</b> the small cost tags on each day's stops are per-person, out-of-pocket estimates for that specific taxi ride or meal. Breakfast runs ~$8–12 each day and lunches ~$12–18 — both comfortably inside the $20 per diem. The Gangnam BBQ dinners and the Banpo riverside dinner run a bit above a typical meal, but both are still well under what a tasting-menu splurge would cost — no need to budget them separately from the per diem.</div>
 
       <div class="ctrl-row">
         <div class="ctrl">
@@ -783,7 +1071,7 @@
           <h3>Where it goes</h3>
           <div class="chart-wrap"><canvas id="budgetChart"></canvas></div>
           <div class="legend" id="legend"></div>
-          <div class="meaning" style="margin-top:14px;"><b>Heads up:</b> in-land transportation is budgeted at $100 for 5 days (~$20/day) — that comfortably covers taxis to Sejong University and AREX airport transfers, with some room for subway top-ups.</div>
+          <div class="meaning" style="margin-top:14px;"><b>Heads up:</b> the Jongno hotel means three extra subway/taxi commutes to COEX (~$1.50–14 each way) that the original plan didn't have. The $100 in-land transport budget still covers it comfortably if you stick to the subway for the daily commute and save taxis for late nights, but it's tighter than before — bump it to ~$120–130 if you'll be taking taxis more often.</div>
         </div>
 
       </div>
@@ -794,8 +1082,11 @@
   </div>
 
   <div class="footer">
-    <div class="tag-line">Overall: think Manila-summer humidity, not Korean-winter layers. Breathable natural fabrics (cotton, linen), one dressier outfit for Solbam, a compact umbrella, and sunscreen will cover the whole trip. Sneakers over sandals — you'll be walking a lot.</div>
-    <div class="stamp">SEOUL · AI SUMMIT · 2026</div>
+    <div class="tag-line">Overall: think Manila-summer humidity, not Korean-winter layers. Breathable natural fabrics (cotton, linen), a compact umbrella, and sunscreen will cover the whole trip. Sneakers over sandals — you'll be walking a lot.</div>
+    <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+      <button class="nav-btn" id="resetChoices">Reset my choices</button>
+      <div class="stamp">SEOUL · AI SUMMIT · 2026</div>
+    </div>
   </div>
 
 </div>
@@ -918,6 +1209,53 @@
   });
 
   recalcBudget();
+
+  /* ===== Dynamic option picking ===== */
+  (function(){
+    const STORAGE_KEY = 'seoulItineraryChoices_v1';
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch(e) { saved = {}; }
+
+    const grids = Array.from(document.querySelectorAll('.opt-grid'));
+
+    function selectCard(grid, card, persist){
+      grid.querySelectorAll('.opt-card').forEach(c => {
+        c.classList.remove('pick');
+        const existingTag = c.querySelector('.opt-tag');
+        if (existingTag) existingTag.remove();
+      });
+      card.classList.add('pick');
+      const top = card.querySelector('.opt-top');
+      const tag = document.createElement('span');
+      tag.className = 'opt-tag';
+      tag.textContent = card.dataset.original === 'true' ? 'Pick' : 'Your pick';
+      top.appendChild(tag);
+      if (persist) {
+        const gi = grids.indexOf(grid);
+        const ci = Array.from(grid.children).indexOf(card);
+        saved[gi] = ci;
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(saved)); } catch(e) {}
+      }
+    }
+
+    grids.forEach((grid, gi) => {
+      Array.from(grid.children).forEach(card => {
+        if (card.classList.contains('pick')) card.dataset.original = 'true';
+        card.addEventListener('click', () => selectCard(grid, card, true));
+      });
+      if (saved[gi] !== undefined && grid.children[saved[gi]]) {
+        selectCard(grid, grid.children[saved[gi]], false);
+      }
+    });
+
+    const resetBtn = document.getElementById('resetChoices');
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+        location.reload();
+      });
+    }
+  })();
 </script>
 </body>
 </html>
