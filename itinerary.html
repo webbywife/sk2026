@@ -253,7 +253,44 @@
     object-position:center;
     flex-shrink:0;
     border:1px solid var(--line);
+    cursor:zoom-in;
+    transition:opacity 0.15s ease;
   }
+  .outfit-photo:hover{opacity:0.85;}
+
+  .lightbox{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(20,10,15,0.82);
+    z-index:1000;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    cursor:zoom-out;
+  }
+  .lightbox.open{display:flex;}
+  .lightbox img{
+    max-width:min(600px, 92vw);
+    max-height:88vh;
+    border-radius:14px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.4);
+  }
+  .lightbox-close{
+    position:absolute;
+    top:18px;
+    right:22px;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    border:none;
+    background:rgba(255,255,255,0.15);
+    color:#fff;
+    font-size:20px;
+    line-height:1;
+    cursor:pointer;
+  }
+  .lightbox-close:hover{background:rgba(255,255,255,0.28);}
   .outfit{
     display:flex;
     gap:8px;
@@ -1371,6 +1408,45 @@
     }
 
     loadForecast().catch(() => {});
+  })();
+</script>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+<script>
+  /* ===== Click-to-zoom outfit photos ===== */
+  (function() {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const closeBtn = document.getElementById('lightboxClose');
+
+    function hiRes(src) {
+      return src.replace(/([?&])w=\d+/, '$1w=1200');
+    }
+
+    function openLightbox(img) {
+      lightboxImg.src = hiRes(img.src);
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('open');
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightboxImg.src = '';
+    }
+
+    document.querySelectorAll('.outfit-photo').forEach(img => {
+      img.addEventListener('click', () => openLightbox(img));
+    });
+
+    lightbox.addEventListener('click', closeLightbox);
+    closeBtn.addEventListener('click', (e) => { e.stopPropagation(); closeLightbox(); });
+    lightboxImg.addEventListener('click', (e) => e.stopPropagation());
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
   })();
 </script>
 </body>
