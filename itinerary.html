@@ -239,15 +239,21 @@
   .weather .wdesc{font-size:14.5px; color:var(--text-dim); line-height:1.55;}
   .weather .wdesc b{color:var(--text); font-weight:600;}
   .weather .wsource{display:block; margin-top:6px; font-family:'JetBrains Mono', monospace; font-size:11.5px; letter-spacing:0.02em; color:var(--text-dim); opacity:0.75;}
-  .outfit-row{
+  .outfit-photos{
     display:flex;
-    gap:12px;
-    align-items:flex-start;
+    gap:10px;
     margin-top:10px;
+    flex-wrap:wrap;
+  }
+  .outfit-photo-item{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:5px;
   }
   .outfit-photo{
-    width:150px;
-    height:150px;
+    width:118px;
+    height:118px;
     border-radius:12px;
     object-fit:cover;
     object-position:center;
@@ -257,6 +263,12 @@
     transition:opacity 0.15s ease;
   }
   .outfit-photo:hover{opacity:0.85;}
+  .outfit-photo-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.04em;
+    color:var(--text-dim);
+  }
 
   .lightbox{
     display:none;
@@ -296,6 +308,7 @@
     gap:8px;
     flex-wrap:wrap;
     align-content:flex-start;
+    margin-top:10px;
   }
   .outfit .chip{
     font-family:'JetBrains Mono', monospace;
@@ -307,8 +320,7 @@
     white-space:nowrap;
   }
   @media (max-width:480px){
-    .outfit-photo{width:110px; height:110px;}
-    .outfit-row{flex-wrap:wrap;}
+    .outfit-photo{width:88px; height:88px;}
   }
 
   .day-media{
@@ -663,14 +675,16 @@
           <div class="temp" id="temp-1">28° <span>/ 22°C</span></div>
           <div class="wdesc"><b id="wcond-1">Hot, humid, ~35% rain chance.</b> Gyeongbokgung is closed on Tuesdays anyway, so no loss — today stays close to the hotel while you shake off the flight.<span class="wsource" id="wsource-1"></span></div>
         </div>
-        <div class="outfit-row">
-          <img class="outfit-photo" src="https://images.pexels.com/photos/9065153/pexels-photo-9065153.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Sample comfortable casual travel outfit — shirt, sneakers, watch" loading="lazy">
-          <div class="outfit">
-            <span class="chip">breathable tee</span>
-            <span class="chip">light layer for AC</span>
-            <span class="chip">walking shoes</span>
-            <span class="chip">compact umbrella</span>
-          </div>
+        <div class="outfit-photos">
+          <div class="outfit-photo-item"><img class="outfit-photo" src="https://images.pexels.com/photos/934063/pexels-photo-934063.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Outfit idea 1 — striped top, jeans, sunglasses" loading="lazy"><span class="outfit-photo-label">Idea 1</span></div>
+          <div class="outfit-photo-item"><img class="outfit-photo" src="https://images.pexels.com/photos/28645956/pexels-photo-28645956.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Outfit idea 2 — sneakers, sunglasses, tote bag" loading="lazy"><span class="outfit-photo-label">Idea 2</span></div>
+          <div class="outfit-photo-item"><img class="outfit-photo" src="https://images.pexels.com/photos/3944690/pexels-photo-3944690.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Outfit idea 3 — jeans, scarf, sneakers" loading="lazy"><span class="outfit-photo-label">Idea 3</span></div>
+        </div>
+        <div class="outfit">
+          <span class="chip">breathable tee</span>
+          <span class="chip">light layer for AC</span>
+          <span class="chip">walking shoes</span>
+          <span class="chip">compact umbrella</span>
         </div>
         <div class="day-media">
           <img src="https://lh3.googleusercontent.com/place-photos/AG9NLjA8YpvvpG7reqUwByw87el1l5JsSq-6jCMsbYo0ICCJaVQBKuK9ICp69kVMTCQzf1OUUZSDGN1ElVddqcBNnO5hrJRQX_cxiBY6d2e4DMNaqdR0_tGWg86NU8W8k0ulEaRiPTB1UYmeYjAA9g=s4800-w800-h600" alt="Sejong University" loading="lazy">
@@ -721,13 +735,15 @@
           <div class="temp" id="temp-2">28° <span>/ 22°C</span></div>
           <div class="wdesc"><b id="wcond-2">Warm outside, cold inside.</b> Conference halls run heavily air-conditioned — the walk to COEX will feel muggy, the ballroom will feel like a fridge.<span class="wsource" id="wsource-2"></span></div>
         </div>
-        <div class="outfit-row">
-          <img class="outfit-photo" src="https://images.pexels.com/photos/33633245/pexels-photo-33633245.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Sample comfortable smart-casual outfit — trousers, sweater, boots" loading="lazy">
-          <div class="outfit">
-            <span class="chip">smart-casual top</span>
-            <span class="chip">light cardigan / blazer</span>
-            <span class="chip">comfortable trousers</span>
-          </div>
+        <div class="outfit-photos">
+          <div class="outfit-photo-item"><img class="outfit-photo" src="https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Outfit idea 1 — white sherpa cardigan, jeans, glasses" loading="lazy"><span class="outfit-photo-label">Idea 1</span></div>
+          <div class="outfit-photo-item"><img class="outfit-photo" src="https://images.pexels.com/photos/15667095/pexels-photo-15667095.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Outfit idea 2 — cream knit cardigan, jeans" loading="lazy"><span class="outfit-photo-label">Idea 2</span></div>
+          <div class="outfit-photo-item"><img class="outfit-photo" src="https://images.pexels.com/photos/8318230/pexels-photo-8318230.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Outfit idea 3 — comfortable trousers, floral flats" loading="lazy"><span class="outfit-photo-label">Idea 3</span></div>
+        </div>
+        <div class="outfit">
+          <span class="chip">smart-casual top</span>
+          <span class="chip">light cardigan / blazer</span>
+          <span class="chip">comfortable trousers</span>
         </div>
         <div class="day-media">
           <img src="https://lh3.googleusercontent.com/place-photos/AG9NLjDn6ERGgjeTQXQA_LvsnErQDlLUCrDPp2ESfHbs-N6mus7d4E_yFYXmWFHSIFXxN5Wje35gyvot3u-XmxG-4GgA5TMtz7NJf8qIoxyjvad-RGCF4FQBeHZSNB6vJBceUua62_PAzQjUXVNAlQ=s4800-w800-h600" alt="COEX Grand Ballroom" loading="lazy">
@@ -782,13 +798,15 @@
           <div class="temp" id="temp-3">28° <span>/ 22°C</span></div>
           <div class="wdesc"><b id="wcond-3">Same pattern, evening loop adds sweat.</b> Namdaemun and Namsan stay warm and crowded at night — breathable fabric matters more than style here.<span class="wsource" id="wsource-3"></span></div>
         </div>
-        <div class="outfit-row">
-          <img class="outfit-photo" src="https://images.pexels.com/photos/31078828/pexels-photo-31078828.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Sample comfortable layered outfit — cardigan and crossbody bag" loading="lazy">
-          <div class="outfit">
-            <span class="chip">conference layers</span>
-            <span class="chip">change into casual tee for evening</span>
-            <span class="chip">crossbody bag over backpack</span>
-          </div>
+        <div class="outfit-photos">
+          <div class="outfit-photo-item"><img class="outfit-photo" src="https://images.pexels.com/photos/9327156/pexels-photo-9327156.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Outfit idea 1 — flat loafers, structured crossbody bag" loading="lazy"><span class="outfit-photo-label">Idea 1</span></div>
+          <div class="outfit-photo-item"><img class="outfit-photo" src="https://images.pexels.com/photos/34976478/pexels-photo-34976478.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Outfit idea 2 — flats and crossbody bag" loading="lazy"><span class="outfit-photo-label">Idea 2</span></div>
+          <div class="outfit-photo-item"><img class="outfit-photo" src="https://images.pexels.com/photos/4271569/pexels-photo-4271569.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Outfit idea 3 — pleated skirt, sneakers, casual evening look" loading="lazy"><span class="outfit-photo-label">Idea 3</span></div>
+        </div>
+        <div class="outfit">
+          <span class="chip">conference layers</span>
+          <span class="chip">change into casual tee for evening</span>
+          <span class="chip">crossbody bag over backpack</span>
         </div>
         <div class="day-media">
           <img src="https://lh3.googleusercontent.com/place-photos/AG9NLjDoUOPU0bCR-7UByEtcEt8zDsA-hK3-NlIP17OvoYerufWmuRlEzzy0fs4-nm9CuouzCmp1LQl_Dl_tICkMeywm4eBfOsvzfYXgnASCXOnNXiA4eU9l_0e3ecXgqDMzRM4OA90gWJYgvjjnWfk=s4800-w664-h401" alt="Namsan / N Seoul Tower" loading="lazy">
@@ -864,13 +882,15 @@
           <div class="temp" id="temp-4">27° <span>/ 21°C</span></div>
           <div class="wdesc"><b id="wcond-4">Slightly milder, still humid.</b> An open afternoon by day, riverside dinner and a fountain show by night — casual, comfortable clothes work for both.<span class="wsource" id="wsource-4"></span></div>
         </div>
-        <div class="outfit-row">
-          <img class="outfit-photo" src="https://images.pexels.com/photos/4271568/pexels-photo-4271568.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Sample comfortable casual outfit — tee, jeans, sneakers" loading="lazy">
-          <div class="outfit">
-            <span class="chip">smart-casual by day</span>
-            <span class="chip">casual outfit for the riverside</span>
-            <span class="chip">light layer for the evening breeze</span>
-          </div>
+        <div class="outfit-photos">
+          <div class="outfit-photo-item"><img class="outfit-photo" src="https://images.pexels.com/photos/3214308/pexels-photo-3214308.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Outfit idea 1 — floral midi dress, sneakers" loading="lazy"><span class="outfit-photo-label">Idea 1</span></div>
+          <div class="outfit-photo-item"><img class="outfit-photo" src="https://images.pexels.com/photos/38627814/pexels-photo-38627814.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Outfit idea 2 — printed dress, white sneakers" loading="lazy"><span class="outfit-photo-label">Idea 2</span></div>
+          <div class="outfit-photo-item"><img class="outfit-photo" src="https://images.pexels.com/photos/38273441/pexels-photo-38273441.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Outfit idea 3 — floral dress, high-top sneakers" loading="lazy"><span class="outfit-photo-label">Idea 3</span></div>
+        </div>
+        <div class="outfit">
+          <span class="chip">smart-casual by day</span>
+          <span class="chip">casual outfit for the riverside</span>
+          <span class="chip">light layer for the evening breeze</span>
         </div>
         <div class="day-media">
           <img src="https://lh3.googleusercontent.com/place-photos/AG9NLjB-sUpK8zoSFkTdSTcsXU50OpLx-0_BcYlhn75Wk_C4JONHlR1WVsmgeBeroQoKRNj5z7_HiMM9UtXNxAvTV1X1uWjmfN52sQdwXybtlP_BtQq1_ezVkfDIkDiNFaQfdTD0Fs-4fk6FTjxEpg=s4800-w800-h600" alt="Banpo Bridge Rainbow Fountain" loading="lazy">
@@ -950,14 +970,16 @@
           <div class="temp" id="temp-5">27° <span>/ 20°C</span></div>
           <div class="wdesc"><b id="wcond-5">Full day outdoors — friends, palace, hanok alleys.</b> Highest rain chance of the trip late in August, so keep the umbrella handy.<span class="wsource" id="wsource-5"></span></div>
         </div>
-        <div class="outfit-row">
-          <img class="outfit-photo" src="https://images.pexels.com/photos/17900105/pexels-photo-17900105.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Sample comfortable sun-protection gear — sun hat and sunscreen" loading="lazy">
-          <div class="outfit">
-            <span class="chip">sun hat / cap</span>
-            <span class="chip">sunscreen</span>
-            <span class="chip">breathable outfit for walking</span>
-            <span class="chip">umbrella in daypack</span>
-          </div>
+        <div class="outfit-photos">
+          <div class="outfit-photo-item"><img class="outfit-photo" src="https://images.pexels.com/photos/17900105/pexels-photo-17900105.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Outfit idea 1 — sun hat and sunscreen" loading="lazy"><span class="outfit-photo-label">Idea 1</span></div>
+          <div class="outfit-photo-item"><img class="outfit-photo" src="https://images.pexels.com/photos/7836547/pexels-photo-7836547.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Outfit idea 2 — sun hat, sunglasses, light sweater" loading="lazy"><span class="outfit-photo-label">Idea 2</span></div>
+          <div class="outfit-photo-item"><img class="outfit-photo" src="https://images.pexels.com/photos/3030690/pexels-photo-3030690.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Outfit idea 3 — sun hat, sunglasses, comfortable shoes" loading="lazy"><span class="outfit-photo-label">Idea 3</span></div>
+        </div>
+        <div class="outfit">
+          <span class="chip">sun hat / cap</span>
+          <span class="chip">sunscreen</span>
+          <span class="chip">breathable outfit for walking</span>
+          <span class="chip">umbrella in daypack</span>
         </div>
         <div class="day-media">
           <img src="https://lh3.googleusercontent.com/place-photos/AG9NLjAH_xAD5xqwPGf7Bw6W_c---M9bGxuNHV4D1ODgEen4UA3ohM9KnqWBgT0dznlmpTH1_6tBjEjwX7BGkhIJCzi0W1dAXatpFywfEDrdXlAj_xgBtcCP6RW-eVGhPgW86JDW4vYxDNSlNlwu8xM=s4800-w800-h600" alt="Gyeongbokgung Palace" loading="lazy">
