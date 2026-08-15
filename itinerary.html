@@ -239,11 +239,25 @@
   .weather .wdesc{font-size:14.5px; color:var(--text-dim); line-height:1.55;}
   .weather .wdesc b{color:var(--text); font-weight:600;}
   .weather .wsource{display:block; margin-top:6px; font-family:'JetBrains Mono', monospace; font-size:11.5px; letter-spacing:0.02em; color:var(--text-dim); opacity:0.75;}
+  .outfit-row{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    margin-top:10px;
+  }
+  .outfit-photo{
+    width:72px;
+    height:72px;
+    border-radius:10px;
+    object-fit:cover;
+    flex-shrink:0;
+    border:1px solid var(--line);
+  }
   .outfit{
     display:flex;
     gap:8px;
-    margin-top:10px;
     flex-wrap:wrap;
+    align-content:flex-start;
   }
   .outfit .chip{
     font-family:'JetBrains Mono', monospace;
@@ -253,6 +267,9 @@
     border-radius:999px;
     padding:5px 12px;
     white-space:nowrap;
+  }
+  @media (max-width:480px){
+    .outfit-photo{width:56px; height:56px;}
   }
 
   .day-media{
@@ -607,11 +624,14 @@
           <div class="temp" id="temp-1">28° <span>/ 22°C</span></div>
           <div class="wdesc"><b id="wcond-1">Hot, humid, ~35% rain chance.</b> Gyeongbokgung is closed on Tuesdays anyway, so no loss — today stays close to the hotel while you shake off the flight.<span class="wsource" id="wsource-1"></span></div>
         </div>
-        <div class="outfit">
-          <span class="chip">breathable tee</span>
-          <span class="chip">light layer for AC</span>
-          <span class="chip">walking shoes</span>
-          <span class="chip">compact umbrella</span>
+        <div class="outfit-row">
+          <img class="outfit-photo" src="https://images.pexels.com/photos/8408556/pexels-photo-8408556.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Sample casual travel outfit" loading="lazy">
+          <div class="outfit">
+            <span class="chip">breathable tee</span>
+            <span class="chip">light layer for AC</span>
+            <span class="chip">walking shoes</span>
+            <span class="chip">compact umbrella</span>
+          </div>
         </div>
         <div class="day-media">
           <img src="https://lh3.googleusercontent.com/place-photos/AG9NLjA8YpvvpG7reqUwByw87el1l5JsSq-6jCMsbYo0ICCJaVQBKuK9ICp69kVMTCQzf1OUUZSDGN1ElVddqcBNnO5hrJRQX_cxiBY6d2e4DMNaqdR0_tGWg86NU8W8k0ulEaRiPTB1UYmeYjAA9g=s4800-w800-h600" alt="Sejong University" loading="lazy">
@@ -662,10 +682,13 @@
           <div class="temp" id="temp-2">28° <span>/ 22°C</span></div>
           <div class="wdesc"><b id="wcond-2">Warm outside, cold inside.</b> Conference halls run heavily air-conditioned — the walk to COEX will feel muggy, the ballroom will feel like a fridge.<span class="wsource" id="wsource-2"></span></div>
         </div>
-        <div class="outfit">
-          <span class="chip">smart-casual top</span>
-          <span class="chip">light cardigan / blazer</span>
-          <span class="chip">comfortable trousers</span>
+        <div class="outfit-row">
+          <img class="outfit-photo" src="https://images.pexels.com/photos/14577586/pexels-photo-14577586.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Sample smart-casual conference outfit" loading="lazy">
+          <div class="outfit">
+            <span class="chip">smart-casual top</span>
+            <span class="chip">light cardigan / blazer</span>
+            <span class="chip">comfortable trousers</span>
+          </div>
         </div>
         <div class="day-media">
           <img src="https://lh3.googleusercontent.com/place-photos/AG9NLjDn6ERGgjeTQXQA_LvsnErQDlLUCrDPp2ESfHbs-N6mus7d4E_yFYXmWFHSIFXxN5Wje35gyvot3u-XmxG-4GgA5TMtz7NJf8qIoxyjvad-RGCF4FQBeHZSNB6vJBceUua62_PAzQjUXVNAlQ=s4800-w800-h600" alt="COEX Grand Ballroom" loading="lazy">
@@ -720,10 +743,13 @@
           <div class="temp" id="temp-3">28° <span>/ 22°C</span></div>
           <div class="wdesc"><b id="wcond-3">Same pattern, evening loop adds sweat.</b> Namdaemun and Namsan stay warm and crowded at night — breathable fabric matters more than style here.<span class="wsource" id="wsource-3"></span></div>
         </div>
-        <div class="outfit">
-          <span class="chip">conference layers</span>
-          <span class="chip">change into casual tee for evening</span>
-          <span class="chip">crossbody bag over backpack</span>
+        <div class="outfit-row">
+          <img class="outfit-photo" src="https://images.pexels.com/photos/14577601/pexels-photo-14577601.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Sample conference-to-evening outfit with bag" loading="lazy">
+          <div class="outfit">
+            <span class="chip">conference layers</span>
+            <span class="chip">change into casual tee for evening</span>
+            <span class="chip">crossbody bag over backpack</span>
+          </div>
         </div>
         <div class="day-media">
           <img src="https://lh3.googleusercontent.com/place-photos/AG9NLjDoUOPU0bCR-7UByEtcEt8zDsA-hK3-NlIP17OvoYerufWmuRlEzzy0fs4-nm9CuouzCmp1LQl_Dl_tICkMeywm4eBfOsvzfYXgnASCXOnNXiA4eU9l_0e3ecXgqDMzRM4OA90gWJYgvjjnWfk=s4800-w664-h401" alt="Namsan / N Seoul Tower" loading="lazy">
@@ -799,10 +825,13 @@
           <div class="temp" id="temp-4">27° <span>/ 21°C</span></div>
           <div class="wdesc"><b id="wcond-4">Slightly milder, still humid.</b> An open afternoon by day, riverside dinner and a fountain show by night — casual, comfortable clothes work for both.<span class="wsource" id="wsource-4"></span></div>
         </div>
-        <div class="outfit">
-          <span class="chip">smart-casual by day</span>
-          <span class="chip">casual outfit for the riverside</span>
-          <span class="chip">light layer for the evening breeze</span>
+        <div class="outfit-row">
+          <img class="outfit-photo" src="https://images.pexels.com/photos/9218524/pexels-photo-9218524.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Sample smart-casual outfit" loading="lazy">
+          <div class="outfit">
+            <span class="chip">smart-casual by day</span>
+            <span class="chip">casual outfit for the riverside</span>
+            <span class="chip">light layer for the evening breeze</span>
+          </div>
         </div>
         <div class="day-media">
           <img src="https://lh3.googleusercontent.com/place-photos/AG9NLjB-sUpK8zoSFkTdSTcsXU50OpLx-0_BcYlhn75Wk_C4JONHlR1WVsmgeBeroQoKRNj5z7_HiMM9UtXNxAvTV1X1uWjmfN52sQdwXybtlP_BtQq1_ezVkfDIkDiNFaQfdTD0Fs-4fk6FTjxEpg=s4800-w800-h600" alt="Banpo Bridge Rainbow Fountain" loading="lazy">
@@ -882,11 +911,14 @@
           <div class="temp" id="temp-5">27° <span>/ 20°C</span></div>
           <div class="wdesc"><b id="wcond-5">Full day outdoors — friends, palace, hanok alleys.</b> Highest rain chance of the trip late in August, so keep the umbrella handy.<span class="wsource" id="wsource-5"></span></div>
         </div>
-        <div class="outfit">
-          <span class="chip">sun hat / cap</span>
-          <span class="chip">sunscreen</span>
-          <span class="chip">breathable outfit for walking</span>
-          <span class="chip">umbrella in daypack</span>
+        <div class="outfit-row">
+          <img class="outfit-photo" src="https://images.pexels.com/photos/17900105/pexels-photo-17900105.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Sample sun-protection travel outfit" loading="lazy">
+          <div class="outfit">
+            <span class="chip">sun hat / cap</span>
+            <span class="chip">sunscreen</span>
+            <span class="chip">breathable outfit for walking</span>
+            <span class="chip">umbrella in daypack</span>
+          </div>
         </div>
         <div class="day-media">
           <img src="https://lh3.googleusercontent.com/place-photos/AG9NLjAH_xAD5xqwPGf7Bw6W_c---M9bGxuNHV4D1ODgEen4UA3ohM9KnqWBgT0dznlmpTH1_6tBjEjwX7BGkhIJCzi0W1dAXatpFywfEDrdXlAj_xgBtcCP6RW-eVGhPgW86JDW4vYxDNSlNlwu8xM=s4800-w800-h600" alt="Gyeongbokgung Palace" loading="lazy">
