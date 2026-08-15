@@ -93,6 +93,10 @@
     transition:opacity 0.15s ease;
   }
   .filter-btn .dot{width:10px; height:10px; border-radius:50%; flex-shrink:0;}
+  .filter-btn .dot:not(:empty){
+    width:16px; height:16px; display:flex; align-items:center; justify-content:center;
+    font-size:9px; line-height:1;
+  }
   .filter-btn.off{opacity:0.35;}
   .filter-btn:hover{opacity:0.75;}
   .filter-btn.off:hover{opacity:0.55;}
@@ -183,6 +187,19 @@
     box-shadow:0 1px 4px rgba(0,0,0,0.35);
   }
 
+  .pin-circle{
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    border:2px solid #fff;
+    box-shadow:0 1px 4px rgba(0,0,0,0.35);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:11px;
+    line-height:1;
+  }
+
   @media (max-width:640px){
     h1{font-size:20px;}
     .filter-btn{font-size:12px; padding:6px 11px 6px 8px;}
@@ -215,21 +232,26 @@
     { day:1, time:"08:30", name:"Shilla Stay Samsung COEX", lat:37.5099527, lon:127.0631277, note:"Home base, all 4 nights", transport:"2-min walk from the bus drop-off", photo:"https://lh3.googleusercontent.com/place-photos/AG9NLjC1uB91YsXtm-CcImZHSS6vqFPqXBcYo4cjh5tnqVQjuVtD9bTn2bqnfVA2FBD7KECP7-AHfKzod99LZ_OgDNzZ1o3afDp1mx_r7TVylnJvJGQ1IYmDowRtbf3LRYGC2iHcYKc2VX-oYDw3=s4800-w800-h600" },
     { day:1, time:"08:45", name:"Four Stones Coffee Roasters", lat:37.509803, lon:127.0640979, note:"Breakfast", transport:"4-min walk from the hotel", photo:"https://lh3.googleusercontent.com/place-photos/AG9NLjAQ0EiBgf_gsxGIi2hgsQcKwsNxS1nA8C3aFdgtj1amyh7Y1wCgKZ5LzGPgmQnEVeqKNu07mIuzrzVDqyOLjA0kEeAcSMLl9t9-m_fDN77yjCRpF0qd3xd5gfvMrBt_5sscKkufhtkd_jFQjg=s4800-w800-h600" },
     { day:1, time:"10:00", name:"Sejong University", lat:37.5492699, lon:127.0741029, note:"Campus visit, 10am–2pm", transport:"~4.5 km, ~15–20 min by taxi from COEX", photo:"https://lh3.googleusercontent.com/place-photos/AG9NLjA8YpvvpG7reqUwByw87el1l5JsSq-6jCMsbYo0ICCJaVQBKuK9ICp69kVMTCQzf1OUUZSDGN1ElVddqcBNnO5hrJRQX_cxiBY6d2e4DMNaqdR0_tGWg86NU8W8k0ulEaRiPTB1UYmeYjAA9g=s4800-w800-h600" },
+    { day:1, time:"16:00", name:"COEX Mall / Starfield", lat:37.5100586, lon:127.0601188, note:"Shopping — Kakao Friends, Olive Young, Artbox, Innisfree", transport:"Same building as the hotel", shop:true },
     { day:1, time:"19:00", name:"Sam's Korean BBQ", lat:37.511214, lon:127.0568757, note:"Welcome dinner", transport:"5-min walk from the hotel", photo:"https://lh3.googleusercontent.com/place-photos/AG9NLjBci5Sp2eDRZeLJOl8wRpwmdlWV4IR4ZbNc_OTz7j9-5DM4t7p0JSgR3-dJWg339b0bMqG6O1Hpl0QPhRIglFEAcEOSpp07pCs3ZKhWbItpD4xdLa8UjMwnh-CnuJMQn-FWQqyMIZ1231mbnbmPIr2hzw=s4800-w800-h600" },
     // Day 2
     { day:2, time:"08:00", name:"Jeonu Sogogi Haejangguk", lat:37.5098966, lon:127.0562583, note:"Breakfast", transport:"5-min walk from the hotel", photo:"https://lh3.googleusercontent.com/place-photos/AG9NLjCuGH0DFn0EtwlW0_gxiQk0EzpNHRbmD54GO34cxWCRGV4hf2C7NTZs72hOHDv6IXXHGAgC8oKYMVPXZiUzDGrh6n3xwS7kA04ye5aVFGNB7Ii-i5q1j5YctqAE8_sORNfzOUTkwx0pZ60xKMU=s4800-w800-h600" },
     { day:2, time:"09:00", name:"COEX Grand Ballroom", lat:37.5130712, lon:127.0585203, note:"AI Summit venue", transport:"10-min walk from the hotel", photo:"https://lh3.googleusercontent.com/place-photos/AG9NLjDn6ERGgjeTQXQA_LvsnErQDlLUCrDPp2ESfHbs-N6mus7d4E_yFYXmWFHSIFXxN5Wje35gyvot3u-XmxG-4GgA5TMtz7NJf8qIoxyjvad-RGCF4FQBeHZSNB6vJBceUua62_PAzQjUXVNAlQ=s4800-w800-h600" },
     { day:2, time:"19:00", name:"Hyeongje Teuksubuwi Gangnam", lat:37.4999879, lon:127.0281051, note:"Dinner — tableside BBQ", transport:"~2.5 km, 10-min taxi from COEX", photo:"https://lh3.googleusercontent.com/place-photos/AG9NLjCKce7Fgi9-BybeEzGnkPEfpjVyymKcGFVWnPSW0zoOllOxM9voXQaFHn3XCgCX7PXfgVEWKZBwkUh9lSapVXrLBUf4IgX3v-Tm_C447yXMv8QfsTHn8NXvantKmBzLLRQOjPg0wS3pR3_R8SVVLRFVIg=s4800-w800-h600" },
+    { day:2, time:"20:45", name:"Sinsa / Garosu-gil", lat:37.5205, lon:127.0229, note:"Shopping — trendy boutiques + cafés", transport:"~2 km, 10-min taxi from dinner", shop:true },
+    { day:2, time:"20:45", name:"Gangnam Station Underground Arcade", lat:37.4979, lon:127.0276, note:"Shopping — budget-friendly finds + street food", transport:"~10-min subway from Samseong", shop:true },
     { day:2, time:"20:45", name:"SMTOWN COEX Artium", lat:37.5104, lon:127.0596, note:"K-pop exhibits & cafe, low-key evening", transport:"~0.5 km, 6-min walk from dinner", photo:"https://lh3.googleusercontent.com/place-photos/AG9NLjDn6ERGgjeTQXQA_LvsnErQDlLUCrDPp2ESfHbs-N6mus7d4E_yFYXmWFHSIFXxN5Wje35gyvot3u-XmxG-4GgA5TMtz7NJf8qIoxyjvad-RGCF4FQBeHZSNB6vJBceUua62_PAzQjUXVNAlQ=s4800-w800-h600" },
     // Day 3
     { day:3, time:"08:00", name:"Le Four Doré", lat:37.5106915, lon:127.0581112, note:"Breakfast", transport:"6-min walk from the hotel", photo:"https://lh3.googleusercontent.com/place-photos/AG9NLjAPe6zMLSjlmDruwBnppBiUMbK1Ktb_gJTQoe-Hx_E1QaS3wXgAe0ms1wX3kjQc-PCRr14Z7Ug5bY2V-Jy7BsWFCDPUeH1kYNx7QmncjiWzlXdtcQle2T8E4Q3zdflX5QpB2q39MNNukQrHy9k=s4800-w800-h600" },
     { day:3, time:"18:45", name:"Sungnyemun Gate", lat:37.559984, lon:126.9753071, note:"National Treasure No. 1", transport:"Line 2 direct, Samseong → Euljiro 1-ga · ~9.5 km, ~20 min, no transfer", photo:"https://lh3.googleusercontent.com/place-photos/AG9NLjB3-cXUD9Q7XZBWUoz7bf3FHAj8skSo1uxHQEX7zIEcdV0yYfnsRSn4qPYTfNhxECFgNRoBgqdw4iTSqD8kamFgFjA82MmGxl4sW3ZADAXxuz4XKMLHaCbPMavPHziOZiCkWQmj9daIY5vMZg=s4800-w800-h600" },
     { day:3, time:"19:15", name:"Namdaemun Market", lat:37.559277, lon:126.9777029, note:"Hotteok & kalguksu", transport:"~0.2 km walk from Sungnyemun Gate", photo:"https://lh3.googleusercontent.com/place-photos/AG9NLjCm4RunmyQ1r1dnnEt1MyflVb-MgtgbQyazm9cdwmL-u9DCowloJFfWEOVJ97pzLREP9mjYj-ngUZBTQZnwT4lvhLxVhRpBcARPmirM8U2gyDLPotjxPsxmxjBJupJq3gCwlFnFSEyr7Gyhdb1rgjsksA=s4800-w800-h600" },
     { day:3, time:"20:15", name:"N Seoul Tower / Namsan", lat:37.5565908, lon:126.9839744, note:"Cable car + night view", transport:"Short walk from Namdaemun to the cable car base", photo:"https://lh3.googleusercontent.com/place-photos/AG9NLjDoUOPU0bCR-7UByEtcEt8zDsA-hK3-NlIP17OvoYerufWmuRlEzzy0fs4-nm9CuouzCmp1LQl_Dl_tICkMeywm4eBfOsvzfYXgnASCXOnNXiA4eU9l_0e3ecXgqDMzRM4OA90gWJYgvjjnWfk=s4800-w664-h401" },
-    { day:3, time:"21:15", name:"Myeongdong + Olive Young", lat:37.55998, lon:126.9858296, note:"Shopping street", transport:"Short walk down from Namsan", photo:"https://lh3.googleusercontent.com/place-photos/AG9NLjDkMxPijlKz1HouHeuLWVj1vTygp-UdsPKyoxVKd6scmXOLEDAiYLSge-Hoa6-mil9rot01knk9wpyZmosPb6sFnAB74TmV7L75e9_Kgla4LW9s30evRX1eJqfktmAPjilctI8xiRWnu5ywnQ=s4800-w800-h600" },
+    { day:3, time:"21:15", name:"Myeongdong + Olive Young", lat:37.55998, lon:126.9858296, note:"Shopping street", transport:"Short walk down from Namsan", shop:true, photo:"https://lh3.googleusercontent.com/place-photos/AG9NLjDkMxPijlKz1HouHeuLWVj1vTygp-UdsPKyoxVKd6scmXOLEDAiYLSge-Hoa6-mil9rot01knk9wpyZmosPb6sFnAB74TmV7L75e9_Kgla4LW9s30evRX1eJqfktmAPjilctI8xiRWnu5ywnQ=s4800-w800-h600" },
     // Day 4
     { day:4, time:"08:00", name:"Cheongwaok Hakdong", lat:37.5163933, lon:127.0357018, note:"Breakfast", transport:"7-min walk from the hotel", photo:"https://lh3.googleusercontent.com/place-photos/AG9NLjDJoJNDcn_L9mEwCTpspdjh2qM1FUV-WRw5kNY5x3jU0GrZuaK-AXVeNhUh0gMrD2O8Al0ghQNu7fX1O2Zxq5D9U0jbf1HRdPCQRHfz0mT3TlSrUWaomZD2MTkpnlvqdtarTwHCO9j1Vynoqf9PsxdN4A=s4800-w800-h600" },
     { day:4, time:"13:00", name:"Starfield Library", lat:37.5100586, lon:127.0601188, note:"Lunch, COEX Mall — then a free afternoon", transport:"2-min walk from the hotel, inside COEX Mall", photo:"https://lh3.googleusercontent.com/place-photos/AG9NLjAlGZmMVnoDLdtIE3KMh9RFceY9YyiISDoeb8xGvv-6I2IP1yiGtUWXEpSMyp35E5j7JEIdSbYIxF8-U2TZxZPjcOYBagZbZKIGnUG1Jzpdax3U4X2dS7-4f8NBl_4sutzoL-4v0u0tpi1jJwHPAuf_cQ=s4800-w800-h600" },
+    { day:4, time:"14:30", name:"Goto Mall, Express Bus Terminal", lat:37.5049, lon:127.0047, note:"Shopping — budget Korean fashion, 620 shops underground", transport:"~2.5 km, 10-min taxi from COEX", shop:true },
+    { day:4, time:"14:30", name:"Apgujeong / Dosan", lat:37.5271, lon:127.0404, note:"Shopping — Korean designer brands, beauty flagships", transport:"~4 km, 15-min taxi from COEX", shop:true },
     { day:4, time:"18:30", name:"Beer Garden, Banpo", lat:37.5124514, lon:126.9963569, note:"Riverside dinner", transport:"~9.5 km, ~20–25 min taxi from the hotel", photo:"https://lh3.googleusercontent.com/place-photos/AG9NLjCbfHVjDlleLVQnM1Vl-eXBRR36oMKne7eLQxDyBIiy2Kzb3z7353abf88jxH3Hl6Y_IZ7SCOeSgeu0nlREx2BGjCaPi9RXvpiAIxWsMAD3jCK7-oVEryNoKNJM-qVowa-zc1l3lF9NLKY2h7t1jK7Cxg=s4800-w800-h600" },
     { day:4, time:"19:30", name:"Banpo Rainbow Fountain", lat:37.5126335, lon:126.9984783, note:"Night fountain show", transport:"Same spot as dinner — no travel needed", photo:"https://lh3.googleusercontent.com/place-photos/AG9NLjB-sUpK8zoSFkTdSTcsXU50OpLx-0_BcYlhn75Wk_C4JONHlR1WVsmgeBeroQoKRNj5z7_HiMM9UtXNxAvTV1X1uWjmfN52sQdwXybtlP_BtQq1_ezVkfDIkDiNFaQfdTD0Fs-4fk6FTjxEpg=s4800-w800-h600" },
     // Day 5
@@ -237,9 +259,33 @@
     { day:5, time:"09:45", name:"Gyeongbokgung Palace", lat:37.579617, lon:126.977041, note:"Open Saturdays — guard ceremony 11:00", transport:"~1.6 km, 20-min walk from the friends' hotel", photo:"https://lh3.googleusercontent.com/place-photos/AG9NLjAH_xAD5xqwPGf7Bw6W_c---M9bGxuNHV4D1ODgEen4UA3ohM9KnqWBgT0dznlmpTH1_6tBjEjwX7BGkhIJCzi0W1dAXatpFywfEDrdXlAj_xgBtcCP6RW-eVGhPgW86JDW4vYxDNSlNlwu8xM=s4800-w800-h600" },
     { day:5, time:"11:15", name:"Bukchon Hanok Village", lat:37.5814696, lon:126.9849519, note:"Hanok neighborhood walk", transport:"~1.4 km, 15-min walk from the palace", photo:"https://lh3.googleusercontent.com/place-photos/AG9NLjB1SFLOKliG5hsKlbGPZ_au85AQiuPRcyl9iSntjVftXkwLkFXTPywb7CETtlm7QMkJjuaT7yJtybFHP2GIBLkRebhBB8SAeZ9G0aydIo6JMe5cPcem7EPI3qHugClXQ9nInd6LoePVPV-HpfI=s4800-w800-h600" },
     { day:5, time:"12:15", name:"Ikseon-dong — lunch at 익선취향", lat:37.5737132, lon:126.9901271, note:"Ikseon Chwihyang hanok cafe + neighborhood stroll", transport:"~1.2 km, 15-min walk from Bukchon", photo:"https://lh3.googleusercontent.com/place-photos/AG9NLjDCKVu9wH4T1kwbB1xdP8Unr_rDx9GUZs05PKpNnjgaHzdk9mZrukb9pKn6qUStfPq3fic2716RzScheaMebaoxU8QbRuSJ0qUw2NCDo4rP-BoWefTNoEUaf7Lp_oaVvpR5vsQapeJDDJ0edQ=s4800-w800-h600" },
+    { day:5, time:"13:15", name:"Insadong-gil", lat:37.5745, lon:126.985, note:"Shopping — traditional crafts, hanji paper, tea, pottery", transport:"~0.9 km, 12-min walk from Ikseon-dong", shop:true },
     { day:5, time:"15:30", name:"Hotel the Designers Jongno", lat:37.5693164, lon:126.989045, note:"Back for luggage, say goodbyes", transport:"~1.3 km, 15-min walk or quick taxi from Ikseon-dong", photo:"https://lh3.googleusercontent.com/place-photos/AG9NLjBhbCFQx1ah3RqDyI8VN2B75aR3nEAEB4uEjYW0LqoxynRc-2uQAuIGeoObEBXCPp_MAlPOAVYN5pNAtNQ5o-Hglk6zAaXLFPhM2lusxOUkyBnzFu32DY0L3_VuNCFX2MVXIBqG-TymHAcSiA=s4800-w800-h600" },
     { day:5, time:"16:30", name:"Incheon Airport", lat:37.458666, lon:126.4419679, note:"Departure — PR403, 20:30", transport:"Airport Limousine Bus from a nearby Jongno/Gwanghwamun stop · ~52 km, ~60–75 min (different pickup than the COEX bus used on arrival)", photo:"https://lh3.googleusercontent.com/place-photos/AG9NLjDyX_UKeyaZmuy3ysS_kqrYP8qMK9G2lcL0Is-DILCvjTytdUbzaAmeCJw8leXmz53CT-wC3OabfOZd0Kn3YPTz2ZojC17MCwTFiraKJyYb1HO-2-bA6Zs2jvGIhtHGu3_ninoQjBMmQsaAW10=s4800-w800-h600" },
   ];
+
+  const transitPlaces = [
+    { kind:"subway", name:"Samseong Station", lat:37.514, lon:127.059, note:"Line 2 — nearest subway to the hotel, direct to Gangnam, Euljiro, City Hall" },
+    { kind:"subway", name:"Bongeunsa Station", lat:37.5145, lon:127.0632, note:"Line 9 — alternate option near the hotel" },
+    { kind:"subway", name:"Gangnam Station", lat:37.4979, lon:127.0276, note:"Line 2 — Gangnam Underground Arcade is right at this station" },
+    { kind:"subway", name:"Sinsa Station", lat:37.5162, lon:127.0204, note:"Line 3 — closest stop to Garosu-gil" },
+    { kind:"subway", name:"Apgujeongrodeo Station", lat:37.5274, lon:127.0404, note:"Suin-Bundang Line — closest stop to Dosan Park / Apgujeong" },
+    { kind:"subway", name:"Express Bus Terminal Station", lat:37.5049, lon:127.0047, note:"Lines 3, 7, 9 — exit straight into Goto Mall" },
+    { kind:"subway", name:"Myeongdong Station", lat:37.5606, lon:126.9865, note:"Line 4 — right at the Myeongdong shopping strip" },
+    { kind:"subway", name:"Hoehyeon Station", lat:37.5585, lon:126.9779, note:"Line 4 — closest stop to Namdaemun Market" },
+    { kind:"subway", name:"Gyeongbokgung Station", lat:37.5765, lon:126.9744, note:"Line 3 — right at the palace" },
+    { kind:"subway", name:"Anguk Station", lat:37.5762, lon:126.9853, note:"Line 3 — closest stop to Bukchon and Insadong" },
+    { kind:"subway", name:"Jongno 3(sam)-ga Station", lat:37.5703, lon:126.9917, note:"Lines 1, 3, 5 — closest stop to Ikseon-dong and the Jongno hotel" },
+    { kind:"subway", name:"Incheon Airport T1 Station", lat:37.4488, lon:126.4505, note:"AREX Airport Railroad — alternative to the limousine bus" },
+    { kind:"bus", name:"COEX City Airport Terminal", lat:37.5106, lon:127.0605, note:"Airport Limousine Bus #6103 drop-off on arrival, Day 1" },
+    { kind:"bus", name:"Express Bus Terminal", lat:37.5049, lon:127.0047, note:"Intercity/express bus terminal, same building as Goto Mall" },
+    { kind:"bus", name:"Gwanghwamun Limousine Bus Stop", lat:37.5715, lon:126.9755, note:"Airport Limousine Bus pickup for departure, Day 5" },
+  ];
+
+  const transitTypes = {
+    subway: { label: "Subway / Train", color: "#1565C0", emoji: "🚇" },
+    bus:    { label: "Bus",            color: "#E65100", emoji: "🚌" },
+  };
 
   const map = L.map('map', { zoomControl: true }).setView([37.545, 127.01], 12);
 
@@ -258,26 +304,57 @@
     });
   }
 
+  function makeCircleIcon(color, emoji, size){
+    size = size || 22;
+    return L.divIcon({
+      className: '',
+      html: `<div class="pin-circle" style="background:${color}">${emoji}</div>`,
+      iconSize: [size, size],
+      iconAnchor: [size/2, size/2],
+      popupAnchor: [0, -size/2]
+    });
+  }
+
   const dayLayers = {};
   Object.keys(days).forEach(d => dayLayers[d] = L.layerGroup().addTo(map));
 
   places.forEach(p => {
     const color = days[p.day].color;
-    const marker = L.marker([p.lat, p.lon], { icon: makeIcon(color) });
+    const icon = p.shop ? makeCircleIcon(color, '🛍️', 20) : makeIcon(color);
+    const marker = L.marker([p.lat, p.lon], { icon });
     const streetViewUrl = `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${p.lat},${p.lon}`;
     marker.bindPopup(
-      `<img class="popup-photo" src="${p.photo}" alt="${p.name}" loading="lazy">` +
+      (p.photo ? `<img class="popup-photo" src="${p.photo}" alt="${p.name}" loading="lazy">` : '') +
       `<div class="popup-body">` +
-      `<div class="popup-day" style="color:${color}">${days[p.day].label}</div>` +
+      `<div class="popup-day" style="color:${color}">${days[p.day].label}${p.shop ? ' · 🛍️ Shopping' : ''}</div>` +
       `<div class="popup-time">${p.time}</div>` +
       `<div class="popup-name">${p.name}</div>` +
       `<div class="popup-note">${p.note}</div>` +
-      `<div class="popup-transport"><span class="transport-label">Getting there</span>${p.transport}</div>` +
+      (p.transport ? `<div class="popup-transport"><span class="transport-label">Getting there</span>${p.transport}</div>` : '') +
       `<a class="sv-link" href="${streetViewUrl}" target="_blank" rel="noopener">📷 Open in Street View ↗</a>` +
       `</div>`,
       { maxWidth: 260 }
     );
     marker.addTo(dayLayers[p.day]);
+  });
+
+  const transitLayers = {};
+  Object.keys(transitTypes).forEach(k => transitLayers[k] = L.layerGroup().addTo(map));
+
+  transitPlaces.forEach(p => {
+    const info = transitTypes[p.kind];
+    const marker = L.marker([p.lat, p.lon], { icon: makeCircleIcon(info.color, info.emoji, 20) });
+    const streetViewUrl = `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${p.lat},${p.lon}`;
+    marker.bindPopup(
+      `<div class="popup-body">` +
+      `<div class="popup-day" style="color:${info.color}">${info.emoji} ${info.label}</div>` +
+      `<div class="popup-name">${p.name}</div>` +
+      `<div class="popup-note">${p.note}</div>` +
+      `<a class="sv-link" href="${streetViewUrl}" target="_blank" rel="noopener">📷 Open in Street View ↗</a>` +
+      `</div>`,
+      { maxWidth: 260 }
+    );
+    marker.addTo(transitLayers[p.kind]);
   });
 
   // Filter buttons
@@ -297,6 +374,26 @@
       } else {
         activeDays.add(dayNum);
         map.addLayer(dayLayers[d]);
+        btn.classList.remove('off');
+      }
+    });
+    filtersEl.appendChild(btn);
+  });
+
+  const activeTransit = new Set(Object.keys(transitTypes));
+
+  Object.entries(transitTypes).forEach(([k, info]) => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn';
+    btn.innerHTML = `<span class="dot" style="background:${info.color}">${info.emoji}</span>${info.label}`;
+    btn.addEventListener('click', () => {
+      if (activeTransit.has(k)) {
+        activeTransit.delete(k);
+        map.removeLayer(transitLayers[k]);
+        btn.classList.add('off');
+      } else {
+        activeTransit.add(k);
+        map.addLayer(transitLayers[k]);
         btn.classList.remove('off');
       }
     });
