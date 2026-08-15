@@ -238,6 +238,7 @@
   .weather .temp span{color:var(--pink); font-size:14px; font-weight:500;}
   .weather .wdesc{font-size:14.5px; color:var(--text-dim); line-height:1.55;}
   .weather .wdesc b{color:var(--text); font-weight:600;}
+  .weather .wsource{display:block; margin-top:6px; font-family:'JetBrains Mono', monospace; font-size:11.5px; letter-spacing:0.02em; color:var(--text-dim); opacity:0.75;}
   .outfit{
     display:flex;
     gap:8px;
@@ -585,13 +586,13 @@
     <div class="stat"><div class="num">18h</div><div class="lbl">total flight time</div></div>
   </div>
 
-  <div class="meaning"><b>On the forecast:</b> Aug 18–22 is still too far out for an exact daily forecast, so the numbers below are climate averages for late August in Seoul — hot, muggy, high UV, with roughly a 1-in-3 chance of a shower any given day. Check the 7-day forecast again once you're within about 10 days of departure.</div>
+  <div class="meaning" id="forecastNote"><b>On the forecast:</b> the numbers on each day below are climate averages for late August in Seoul — hot, muggy, high UV, with roughly a 1-in-3 chance of a shower any given day. <span id="forecastNoteLive"></span></div>
 
   <div class="tabbar" id="tabbar">
-    <button class="tab active" data-day="1"><span class="t-num mono">Day 1 · Tue 18</span><span class="t-title">Touchdown & temple calm</span></button>
+    <button class="tab active" data-day="1"><span class="t-num mono">Day 1 · Tue 18</span><span class="t-title">Touchdown & Sejong University</span></button>
     <button class="tab" data-day="2"><span class="t-num mono">Day 2 · Wed 19</span><span class="t-title">Summit day one</span></button>
     <button class="tab" data-day="3"><span class="t-num mono">Day 3 · Thu 20</span><span class="t-title">Summit + Namdaemun & Namsan</span></button>
-    <button class="tab" data-day="4"><span class="t-num mono">Day 4 · Fri 21</span><span class="t-title">Finale + Sejong + Banpo</span></button>
+    <button class="tab" data-day="4"><span class="t-num mono">Day 4 · Fri 21</span><span class="t-title">Finale + free afternoon + Banpo</span></button>
     <button class="tab" data-day="5"><span class="t-num mono">Day 5 · Sat 22</span><span class="t-title">Jongno friends + Old Seoul</span></button>
     <button class="tab" data-day="budget"><span class="t-num mono">Trip cost</span><span class="t-title">Budget</span></button>
   </div>
@@ -601,10 +602,10 @@
     <div class="day-panel active" data-day="1">
       <div class="day-head">
         <div class="day-date">Tue · Aug 18</div>
-        <h1 class="day-title">Touchdown & temple calm <span class="kr">화요일</span></h1>
-        <div class="weather">
-          <div class="temp">28° <span>/ 22°C</span></div>
-          <div class="wdesc"><b>Hot, humid, ~35% rain chance.</b> Gyeongbokgung is closed on Tuesdays anyway, so no loss — today stays close to the hotel while you shake off the flight.</div>
+        <h1 class="day-title">Touchdown & Sejong University <span class="kr">화요일</span></h1>
+        <div class="weather" data-forecast-date="2026-08-18">
+          <div class="temp" id="temp-1">28° <span>/ 22°C</span></div>
+          <div class="wdesc"><b id="wcond-1">Hot, humid, ~35% rain chance.</b> Gyeongbokgung is closed on Tuesdays anyway, so no loss — today stays close to the hotel while you shake off the flight.<span class="wsource" id="wsource-1"></span></div>
         </div>
         <div class="outfit">
           <span class="chip">breathable tee</span>
@@ -613,9 +614,9 @@
           <span class="chip">compact umbrella</span>
         </div>
         <div class="day-media">
-          <img src="https://lh3.googleusercontent.com/place-photos/AG9NLjDWZhznYxUyf4ZZHO1my6jOPWe_RXj-EU2r0gLE_uReKrr4pGgFN72E8GtmkleoRtS_GTaXtvmzKdIBqeeD42qdHO_5Ya5_4hArf1jyfppWDkamV69Ybi2cV7kVxps7A-8lyKbAlqK0F5L4xU4=s4800-w800-h600" alt="Bongeunsa Temple" loading="lazy">
-          <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=127.05138%2C37.50380%2C127.07010%2C37.52085&layer=mapnik&marker=37.51485%2C127.05738" loading="lazy" title="Map of today's stops"></iframe>
-          <div class="cap"><span>Bongeunsa Temple</span><span>Today's area</span></div>
+          <img src="https://lh3.googleusercontent.com/place-photos/AG9NLjA8YpvvpG7reqUwByw87el1l5JsSq-6jCMsbYo0ICCJaVQBKuK9ICp69kVMTCQzf1OUUZSDGN1ElVddqcBNnO5hrJRQX_cxiBY6d2e4DMNaqdR0_tGWg86NU8W8k0ulEaRiPTB1UYmeYjAA9g=s4800-w800-h600" alt="Sejong University" loading="lazy">
+          <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=127.03811%2C37.50406%2C127.08010%2C37.55527&layer=mapnik&marker=37.54927%2C127.07410" loading="lazy" title="Map of today's stops"></iframe>
+          <div class="cap"><span>Sejong University</span><span>Today's area</span></div>
         </div>
       </div>
       <div class="stops">
@@ -630,25 +631,9 @@
             <div class="opt-card"><div class="opt-top"><span class="opt-name">Paris Baguette, COEX</span></div><div class="opt-meta"><span>~0.2 km · inside COEX Mall</span><span>$6–9</span></div><div class="opt-note">Reliable Korean bakery chain with AC seating — useful if it's already muggy out and you'd rather sit indoors.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Paris+Baguette+COEX+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
           </div>
         </div></div>
-        <div class="stop"><div class="time">09:15</div><div>
-          <div class="what">Morning — low-key after the red-eye<span class="cost">free–$28</span></div>
-          <img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjDWZhznYxUyf4ZZHO1my6jOPWe_RXj-EU2r0gLE_uReKrr4pGgFN72E8GtmkleoRtS_GTaXtvmzKdIBqeeD42qdHO_5Ya5_4hArf1jyfppWDkamV69Ybi2cV7kVxps7A-8lyKbAlqK0F5L4xU4=s4800-w800-h600" alt="Bongeunsa Temple" loading="lazy">
-          <div class="opt-grid">
-            <div class="opt-card pick"><div class="opt-top"><span class="opt-name">Bongeunsa Temple</span><span class="opt-tag">Pick</span></div><div class="opt-meta"><span>~0.7 km · 8-min walk from breakfast</span><span>free</span></div><div class="opt-note">A 1,200-year-old working temple wedged between glass towers — the fastest way to reset a jet-lagged body. Quietest before 10am, before tour groups arrive.</div><a class="pin" href="https://maps.google.com/?cid=5001419286940765545" target="_blank" rel="noopener">Map ↗</a></div>
-            <div class="opt-card"><div class="opt-top"><span class="opt-name">COEX Aquarium (SEA LIFE Seoul)</span></div><div class="opt-meta"><span>~0.2 km · inside COEX Mall</span><span>$24–28</span></div><div class="opt-note">Fully indoor, air-conditioned, low walking — a good pick if the humidity or the flight hit harder than expected. Allow ~1 hour.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=COEX+Aquarium+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
-            <div class="opt-card"><div class="opt-top"><span class="opt-name">Seolleung & Jeongneung Royal Tombs</span></div><div class="opt-meta"><span>~1.2 km · 15-min walk from breakfast</span><span>$1</span></div><div class="opt-note">UNESCO-listed Joseon royal tombs set in quiet woodland — fewer crowds than the temple, and a nice flat stroll to shake off the flight.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Seolleung+and+Jeongneung+Royal+Tombs+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
-            <div class="opt-card"><div class="opt-top"><span class="opt-name">COEX Mall shopping</span></div><div class="opt-meta"><span>same building as the hotel</span><span>free browsing–$40</span></div><div class="opt-note">Fully indoor and AC — Kakao Friends flagship, Olive Young, Artbox stationery, and Innisfree are all on the same floor. An easy, low-walking option if the jet lag hits harder than expected.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Kakao+Friends+COEX+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
-          </div>
-        </div></div>
-        <div class="stop"><div class="time">12:00</div><div>
-          <div class="what">Lunch near COEX<span class="cost">~$10–20 food</span></div>
-          <img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjAlGZmMVnoDLdtIE3KMh9RFceY9YyiISDoeb8xGvv-6I2IP1yiGtUWXEpSMyp35E5j7JEIdSbYIxF8-U2TZxZPjcOYBagZbZKIGnUG1Jzpdax3U4X2dS7-4f8NBl_4sutzoL-4v0u0tpi1jJwHPAuf_cQ=s4800-w800-h600" alt="Starfield Library" loading="lazy">
-          <div class="opt-grid">
-            <div class="opt-card pick"><div class="opt-top"><span class="opt-name">Banchan lunch + Starfield Library</span><span class="opt-tag">Pick</span></div><div class="opt-meta"><span>~0.3 km · 3-min walk from temple</span><span>$12–18</span></div><div class="opt-note">A proper sit-down Korean lunch, then wander the open-floor bookshelves next door — both inside COEX Mall.</div><a class="pin" href="https://maps.google.com/?cid=3143025846765073303" target="_blank" rel="noopener">Map ↗</a></div>
-            <div class="opt-card"><div class="opt-top"><span class="opt-name">Gogung Bibimbap, COEX</span></div><div class="opt-meta"><span>same building · COEX Mall</span><span>$10–14</span></div><div class="opt-note">Famous Jeonju-style bibimbap chain — casual mall dining, faster turnaround than a sit-down restaurant.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Gogung+Bibimbap+COEX+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
-            <div class="opt-card"><div class="opt-top"><span class="opt-name">Vatos Urban Tacos, Gangnam</span></div><div class="opt-meta"><span>~1 km · 10-min walk/taxi</span><span>$15–20</span></div><div class="opt-note">Korean-Mexican fusion with big shareable portions — a fun change of pace if you want something less traditional on day one.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Vatos+Urban+Tacos+Gangnam+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
-          </div>
-        </div></div>
+        <div class="stop"><div class="time">09:30</div><div><div class="what">Taxi to <b>Sejong University</b><span class="cost">~$9–11 transport</span><a class="pin" href="https://maps.google.com/?cid=1908076492013036779" target="_blank" rel="noopener">Map ↗</a></div><img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjA8YpvvpG7reqUwByw87el1l5JsSq-6jCMsbYo0ICCJaVQBKuK9ICp69kVMTCQzf1OUUZSDGN1ElVddqcBNnO5hrJRQX_cxiBY6d2e4DMNaqdR0_tGWg86NU8W8k0ulEaRiPTB1UYmeYjAA9g=s4800-w800-h600" alt="Sejong University" loading="lazy"><div class="note">~4.5 km, ~15–20 min by taxi from COEX — cutting it close after a red-eye, but keeps the 10am start on time.</div></div></div>
+        <div class="stop"><div class="time">10:00–14:00</div><div><div class="what">Sejong University visit</div><div class="note">Meeting/visit on campus — lunch works best grabbed near campus before or after, since this runs straight through midday.</div></div></div>
+        <div class="stop"><div class="time">14:15</div><div><div class="what">Taxi back to the hotel</div><div class="note">~15–20 min back to Shilla Stay Samsung COEX.</div></div></div>
         <div class="stop"><div class="time">15:00</div><div><div class="what">Official check-in, rest / shower off the flight</div><div class="note">45–60 min is plenty if you slept a little on the plane.</div></div></div>
         <div class="stop"><div class="time">19:00</div><div>
           <div class="what">Welcome dinner<span class="cost">~$5–35 food</span></div>
@@ -660,10 +645,10 @@
           </div>
         </div></div>
       </div>
-      <div class="meaning"><b>Why it's worth it:</b> a 1,200-year-old working temple wedged between glass towers is the fastest way to reset a body that just crossed a time zone on no sleep — and everything today is within a 10-minute walk of where you'll sleep all four nights.</div>
+      <div class="meaning"><b>Why it's worth it:</b> the Sejong University visit is fixed at 10am, so today is built around it — a quick bag-drop and breakfast near the hotel, out to campus and back, then check-in and rest before the welcome dinner.</div>
       <div class="hiccup"><b>Possible hiccups:</b><ul>
-        <li>Immigration at Incheon can run 30–45+ min on a busy morning — the 08:30 bag-drop and breakfast times may slip. Nothing today is time-sensitive, so just shift the whole morning later if needed.</li>
-        <li>COEX Aquarium can have long ticket queues on weekends — book timed-entry tickets online first if you're picking that option.</li>
+        <li>Immigration at Incheon can run 30–45+ min on a busy morning — if the 06:00 landing slips, the 09:30 taxi to Sejong University is the one fixed appointment today, so protect that time first and compress breakfast if needed.</li>
+        <li>Lunch has to happen around the Sejong University visit rather than at a set time — grab something near campus before 10am or right after 2pm.</li>
         <li>Room check-in isn't guaranteed right at 15:00 if the previous guest's room isn't ready yet — the bell desk can hold your bags longer, no need to hover in the lobby.</li>
       </ul></div>
       <div class="nav-btns"><button class="nav-btn" id="prevBtn" disabled></button><button class="nav-btn" id="nextBtn">Next day →</button></div>
@@ -673,9 +658,9 @@
       <div class="day-head">
         <div class="day-date">Wed · Aug 19</div>
         <h1 class="day-title">Summit day one <span class="kr">수요일</span></h1>
-        <div class="weather">
-          <div class="temp">28° <span>/ 22°C</span></div>
-          <div class="wdesc"><b>Warm outside, cold inside.</b> Conference halls run heavily air-conditioned — the walk to COEX will feel muggy, the ballroom will feel like a fridge.</div>
+        <div class="weather" data-forecast-date="2026-08-19">
+          <div class="temp" id="temp-2">28° <span>/ 22°C</span></div>
+          <div class="wdesc"><b id="wcond-2">Warm outside, cold inside.</b> Conference halls run heavily air-conditioned — the walk to COEX will feel muggy, the ballroom will feel like a fridge.<span class="wsource" id="wsource-2"></span></div>
         </div>
         <div class="outfit">
           <span class="chip">smart-casual top</span>
@@ -731,9 +716,9 @@
       <div class="day-head">
         <div class="day-date">Thu · Aug 20</div>
         <h1 class="day-title">Summit + Namdaemun & Namsan <span class="kr">목요일</span></h1>
-        <div class="weather">
-          <div class="temp">28° <span>/ 22°C</span></div>
-          <div class="wdesc"><b>Same pattern, evening loop adds sweat.</b> Namdaemun and Namsan stay warm and crowded at night — breathable fabric matters more than style here.</div>
+        <div class="weather" data-forecast-date="2026-08-20">
+          <div class="temp" id="temp-3">28° <span>/ 22°C</span></div>
+          <div class="wdesc"><b id="wcond-3">Same pattern, evening loop adds sweat.</b> Namdaemun and Namsan stay warm and crowded at night — breathable fabric matters more than style here.<span class="wsource" id="wsource-3"></span></div>
         </div>
         <div class="outfit">
           <span class="chip">conference layers</span>
@@ -809,10 +794,10 @@
     <div class="day-panel" data-day="4">
       <div class="day-head">
         <div class="day-date">Fri · Aug 21</div>
-        <h1 class="day-title">Summit finale + Sejong + Banpo <span class="kr">금요일</span></h1>
-        <div class="weather">
-          <div class="temp">27° <span>/ 21°C</span></div>
-          <div class="wdesc"><b>Slightly milder, still humid.</b> Campus walk by day, riverside dinner and a fountain show by night — casual, comfortable clothes work for both.</div>
+        <h1 class="day-title">Summit finale + free afternoon + Banpo <span class="kr">금요일</span></h1>
+        <div class="weather" data-forecast-date="2026-08-21">
+          <div class="temp" id="temp-4">27° <span>/ 21°C</span></div>
+          <div class="wdesc"><b id="wcond-4">Slightly milder, still humid.</b> An open afternoon by day, riverside dinner and a fountain show by night — casual, comfortable clothes work for both.<span class="wsource" id="wsource-4"></span></div>
         </div>
         <div class="outfit">
           <span class="chip">smart-casual by day</span>
@@ -820,9 +805,9 @@
           <span class="chip">light layer for the evening breeze</span>
         </div>
         <div class="day-media">
-          <img src="https://lh3.googleusercontent.com/place-photos/AG9NLjA8YpvvpG7reqUwByw87el1l5JsSq-6jCMsbYo0ICCJaVQBKuK9ICp69kVMTCQzf1OUUZSDGN1ElVddqcBNnO5hrJRQX_cxiBY6d2e4DMNaqdR0_tGWg86NU8W8k0ulEaRiPTB1UYmeYjAA9g=s4800-w800-h600" alt="Sejong University" loading="lazy">
-          <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=127.02811%2C37.50406%2C127.08010%2C37.55527&layer=mapnik&marker=37.54927%2C127.07410" loading="lazy" title="Map of today's stops"></iframe>
-          <div class="cap"><span>Sejong University</span><span>Today's area</span></div>
+          <img src="https://lh3.googleusercontent.com/place-photos/AG9NLjB-sUpK8zoSFkTdSTcsXU50OpLx-0_BcYlhn75Wk_C4JONHlR1WVsmgeBeroQoKRNj5z7_HiMM9UtXNxAvTV1X1uWjmfN52sQdwXybtlP_BtQq1_ezVkfDIkDiNFaQfdTD0Fs-4fk6FTjxEpg=s4800-w800-h600" alt="Banpo Bridge Rainbow Fountain" loading="lazy">
+          <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=126.98500%2C37.49800%2C127.07500%2C37.52500&layer=mapnik&marker=37.50930%2C126.99700" loading="lazy" title="Map of today's stops"></iframe>
+          <div class="cap"><span>Banpo Hangang Park</span><span>Today's area</span></div>
         </div>
       </div>
       <div class="stops">
@@ -831,23 +816,27 @@
           <img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjDJoJNDcn_L9mEwCTpspdjh2qM1FUV-WRw5kNY5x3jU0GrZuaK-AXVeNhUh0gMrD2O8Al0ghQNu7fX1O2Zxq5D9U0jbf1HRdPCQRHfz0mT3TlSrUWaomZD2MTkpnlvqdtarTwHCO9j1Vynoqf9PsxdN4A=s4800-w800-h600" alt="Cheongwaok Hakdong" loading="lazy">
           <div class="opt-grid">
             <div class="opt-card pick"><div class="opt-top"><span class="opt-name">Cheongwaok Hakdong</span><span class="opt-tag">Pick</span></div><div class="opt-meta"><span>~0.5 km · 7-min walk from hotel</span><span>$10–12</span></div><div class="opt-note">Sundae gukbap, opens 8am — a heartier send-off before the closing sessions.</div><a class="pin" href="https://maps.google.com/?cid=7648116296943905782" target="_blank" rel="noopener">Map ↗</a></div>
-            <div class="opt-card"><div class="opt-top"><span class="opt-name">Isaac Toast, Samseong</span></div><div class="opt-meta"><span>~0.4 km · 5-min walk</span><span>$3–5</span></div><div class="opt-note">Grab-and-go toasted sandwiches — quickest option if you're packing for the Sejong University visit right after.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Isaac+Toast+Samseong+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Isaac Toast, Samseong</span></div><div class="opt-meta"><span>~0.4 km · 5-min walk</span><span>$3–5</span></div><div class="opt-note">Grab-and-go toasted sandwiches — quickest option if you want to get to the closing sessions early.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Isaac+Toast+Samseong+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
             <div class="opt-card"><div class="opt-top"><span class="opt-name">Angel-in-us Coffee, Samseong</span></div><div class="opt-meta"><span>~0.3 km · 4-min walk</span><span>$6–8</span></div><div class="opt-note">Korean cafe chain — coffee and a pastry, comfortable seating for a slower final-day-of-summit morning.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Angel-in-us+Coffee+Samseong+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
           </div>
         </div></div>
         <div class="stop"><div class="time">08:45</div><div><div class="what">Walk to <b>COEX Grand Ballroom</b></div><div class="note">10 minutes on foot.</div></div></div>
         <div class="stop"><div class="time">09:00–12:30</div><div><div class="what">Closing sessions at COEX</div></div></div>
-        <div class="stop"><div class="time">13:00</div><div><div class="what">Taxi to <b>Sejong University</b><span class="cost">~$9–11 transport</span><a class="pin" href="https://maps.google.com/?cid=1908076492013036779" target="_blank" rel="noopener">Map ↗</a></div><img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjA8YpvvpG7reqUwByw87el1l5JsSq-6jCMsbYo0ICCJaVQBKuK9ICp69kVMTCQzf1OUUZSDGN1ElVddqcBNnO5hrJRQX_cxiBY6d2e4DMNaqdR0_tGWg86NU8W8k0ulEaRiPTB1UYmeYjAA9g=s4800-w800-h600" alt="Sejong University" loading="lazy"><div class="note">~4.5 km, ~15–20 min by taxi from COEX.</div></div></div>
-        <div class="stop"><div class="time">14:00</div><div>
-          <div class="what">Campus area, afternoon<span class="cost">free–$7</span></div>
-          <img class="stop-thumb" src="https://lh3.googleusercontent.com/place-photos/AG9NLjCNkBgNl0B5PeQZEFvfr_vJS8O8dBSCluc6TypjP0wfaDKnXqmGLLlbPbWMVVfz5cDXBs-gu0wqBrpat8TSKZmqTPXjG5Euf-2hH07KCL3sz-dMr_l80XOyTHsCaChkmZrjaxtCucjaJb10=s4800-w800-h600" alt="Mouse Rabbit Coffee" loading="lazy">
+        <div class="stop"><div class="time">13:00</div><div>
+          <div class="what">Lunch near COEX<span class="cost">~$10–20 food</span></div>
           <div class="opt-grid">
-            <div class="opt-card pick"><div class="opt-top"><span class="opt-name">Campus walk + Mouse Rabbit Coffee</span><span class="opt-tag">Pick</span></div><div class="opt-meta"><span>~0.9 km · 12-min walk from campus</span><span>$5–7</span></div><div class="opt-note">A relaxed coffee stop after wandering the Sejong University grounds.</div><a class="pin" href="https://maps.google.com/?cid=3830637633193222543" target="_blank" rel="noopener">Map ↗</a></div>
-            <div class="opt-card"><div class="opt-top"><span class="opt-name">Achasan Trail entrance walk</span></div><div class="opt-meta"><span>~1.5 km · 15-min walk from campus</span><span>free</span></div><div class="opt-note">A short scenic mountain-adjacent trail near the campus — good fresh air if you'd rather not sit down yet, easy to turn back whenever.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Achasan+Trail+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
-            <div class="opt-card"><div class="opt-top"><span class="opt-name">Common Ground, Konkuk University area</span></div><div class="opt-meta"><span>~2 km · 10-min taxi from campus</span><span>free browsing</span></div><div class="opt-note">Trendy container-box mall near the neighboring university — an Olive Young branch, Daiso, streetwear boutiques, and cafes, a livelier alternative to a quiet campus coffee.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Common+Ground+Konkuk+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card pick"><div class="opt-top"><span class="opt-name">Banchan lunch, COEX Mall</span><span class="opt-tag">Pick</span></div><div class="opt-meta"><span>same building as the hotel</span><span>$12–18</span></div><div class="opt-note">Easy sit-down Korean lunch right after the closing sessions let out — no need to go far.</div></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Gogung Bibimbap, COEX</span></div><div class="opt-meta"><span>same building · COEX Mall</span><span>$10–14</span></div><div class="opt-note">Famous Jeonju-style bibimbap chain — casual mall dining, faster turnaround than a sit-down restaurant.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Gogung+Bibimbap+COEX+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
           </div>
         </div></div>
-        <div class="stop"><div class="time">15:30</div><div><div class="what">Rest back at the hotel</div><div class="note">A couple of hours free before heading out for the evening.</div></div></div>
+        <div class="stop"><div class="time">14:00</div><div>
+          <div class="what">Free afternoon<span class="cost">free–$40</span></div>
+          <div class="opt-grid">
+            <div class="opt-card pick"><div class="opt-top"><span class="opt-name">Rest at the hotel</span><span class="opt-tag">Pick</span></div><div class="opt-meta"><span>right at the hotel</span><span>free</span></div><div class="opt-note">A genuinely open block after three straight summit days — nothing else is planned until the evening.</div></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">COEX Mall shopping</span></div><div class="opt-meta"><span>same building as the hotel</span><span>free browsing–$40</span></div><div class="opt-note">Fully indoor and AC — Kakao Friends flagship, Olive Young, Artbox stationery, and Innisfree are all on the same floor.</div><a class="pin" href="https://www.google.com/maps/search/?api=1&query=Kakao+Friends+COEX+Seoul" target="_blank" rel="noopener">Map ↗</a></div>
+            <div class="opt-card"><div class="opt-top"><span class="opt-name">Bongeunsa Temple, afternoon</span></div><div class="opt-meta"><span>~0.7 km · 8-min walk from COEX</span><span>free</span></div><div class="opt-note">If Day 1's morning visit got skipped for the Sejong University trip, this is the easiest make-up slot.</div><a class="pin" href="https://maps.google.com/?cid=5001419286940765545" target="_blank" rel="noopener">Map ↗</a></div>
+          </div>
+        </div></div>
         <div class="stop"><div class="time">18:00</div><div>
           <div class="what">Getting to Banpo Hangang Park<span class="cost">~$1.50–13 transport</span></div>
           <div class="opt-grid">
@@ -878,7 +867,7 @@
       </div>
       <div class="meaning"><b>Why it's worth it:</b> dinner and the fountain show happen at the same spot, so there's no second trip — you eat, the sun goes down, and the show starts right where you're sitting. A genuinely memorable close to the summit for the price of a casual dinner.</div>
       <div class="hiccup"><b>Possible hiccups:</b><ul>
-        <li>Closing sessions can run over — if the 12:30 end time slips, treat the Sejong University visit as the flexible part of the afternoon, not the Banpo dinner.</li>
+        <li>Closing sessions can run over — the free afternoon has nothing fixed, so it easily absorbs a late finish. Only the Banpo dinner and fountain show are time-sensitive.</li>
         <li>Taxis get scarce right as the summit lets out, with many attendees requesting rides at once — have a ride-hailing app (Kakao T) ready as backup, or expect a longer wait.</li>
         <li>The Banpo Bridge Rainbow Fountain doesn't run in heavy rain, high wind, or during dry-season water restrictions — check the schedule that afternoon before building the evening around it.</li>
       </ul></div>
@@ -889,9 +878,9 @@
       <div class="day-head">
         <div class="day-date">Sat · Aug 22</div>
         <h1 class="day-title">Jongno friends + Old Seoul <span class="kr">토요일</span></h1>
-        <div class="weather">
-          <div class="temp">27° <span>/ 20°C</span></div>
-          <div class="wdesc"><b>Full day outdoors — friends, palace, hanok alleys.</b> Highest rain chance of the trip late in August, so keep the umbrella handy.</div>
+        <div class="weather" data-forecast-date="2026-08-22">
+          <div class="temp" id="temp-5">27° <span>/ 20°C</span></div>
+          <div class="wdesc"><b id="wcond-5">Full day outdoors — friends, palace, hanok alleys.</b> Highest rain chance of the trip late in August, so keep the umbrella handy.<span class="wsource" id="wsource-5"></span></div>
         </div>
         <div class="outfit">
           <span class="chip">sun hat / cap</span>
@@ -1243,6 +1232,111 @@
         location.reload();
       });
     }
+  })();
+</script>
+
+<script>
+  /* ===== Live weather (Open-Meteo, no API key) ===== */
+  (function() {
+    const SEOUL_LAT = 37.5115;   // Samseong-dong / COEX, where the hotel is
+    const SEOUL_LON = 127.0595;
+    const DAY_IDS = ['1', '2', '3', '4', '5'];
+
+    const WMO_PHRASE = {
+      0: 'clear skies', 1: 'mostly clear', 2: 'partly cloudy', 3: 'overcast',
+      45: 'foggy', 48: 'foggy',
+      51: 'light drizzle', 53: 'drizzle', 55: 'heavy drizzle',
+      61: 'light rain', 63: 'rain', 65: 'heavy rain',
+      66: 'freezing rain', 67: 'freezing rain',
+      71: 'light snow', 73: 'snow', 75: 'heavy snow', 77: 'snow grains',
+      80: 'rain showers', 81: 'rain showers', 82: 'heavy rain showers',
+      85: 'snow showers', 86: 'snow showers',
+      95: 'thunderstorms', 96: 'thunderstorms with hail', 99: 'thunderstorms with hail'
+    };
+
+    function tempAdjective(maxC) {
+      if (maxC >= 31) return 'Hot';
+      if (maxC >= 27) return 'Warm';
+      if (maxC >= 22) return 'Mild';
+      return 'Cool';
+    }
+
+    function updateForecastNote(html) {
+      const el = document.getElementById('forecastNoteLive');
+      if (el) el.innerHTML = html;
+    }
+
+    async function loadForecast() {
+      const panels = Array.from(document.querySelectorAll('.weather[data-forecast-date]'));
+      if (!panels.length) return;
+
+      const dates = panels.map(p => p.dataset.forecastDate).sort();
+      const startDate = dates[0];
+      const endDate = dates[dates.length - 1];
+
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${SEOUL_LAT}&longitude=${SEOUL_LON}` +
+        `&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_probability_max` +
+        `&timezone=Asia%2FSeoul&start_date=${startDate}&end_date=${endDate}`;
+
+      let data;
+      try {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error('forecast request failed: ' + res.status);
+        data = await res.json();
+        if (!data.daily || !Array.isArray(data.daily.time)) throw new Error('unexpected forecast shape');
+      } catch (err) {
+        updateForecastNote('Live forecast is unavailable right now (offline, or these dates fall outside Open-Meteo\'s ~16-day window) — showing seasonal averages instead.');
+        return;
+      }
+
+      const byDate = {};
+      data.daily.time.forEach((date, i) => {
+        byDate[date] = {
+          max: data.daily.temperature_2m_max[i],
+          min: data.daily.temperature_2m_min[i],
+          code: data.daily.weathercode[i],
+          rain: data.daily.precipitation_probability_max[i]
+        };
+      });
+
+      let anyLive = false;
+      panels.forEach(panel => {
+        const date = panel.dataset.forecastDate;
+        const day = byDate[date];
+        if (!day || day.max == null) return; // leave the seasonal-average fallback untouched
+        anyLive = true;
+
+        const idx = panel.querySelector('[id^="temp-"]')?.id.split('-')[1];
+        if (!idx) return;
+
+        const tempEl = document.getElementById('temp-' + idx);
+        const wcondEl = document.getElementById('wcond-' + idx);
+        const sourceEl = document.getElementById('wsource-' + idx);
+
+        if (tempEl) {
+          tempEl.innerHTML = `${Math.round(day.max)}° <span>/ ${Math.round(day.min)}°C</span>`;
+        }
+        if (wcondEl) {
+          const adj = tempAdjective(day.max);
+          const phrase = WMO_PHRASE[day.code] || 'mixed conditions';
+          const rain = day.rain != null ? Math.round(day.rain) : null;
+          wcondEl.textContent = rain != null
+            ? `${adj}, ${phrase}, ~${rain}% rain chance.`
+            : `${adj}, ${phrase}.`;
+        }
+        if (sourceEl) {
+          sourceEl.textContent = 'Live forecast · Seoul, South Korea';
+        }
+      });
+
+      if (anyLive) {
+        updateForecastNote('Days with a live forecast available show real numbers pulled just now for Seoul — everything else still shows the seasonal average. Re-open this page closer to departure for full coverage.');
+      } else {
+        updateForecastNote('These dates fall outside the live ~16-day forecast window right now — showing seasonal averages instead. Check back closer to departure.');
+      }
+    }
+
+    loadForecast().catch(() => {});
   })();
 </script>
 </body>
